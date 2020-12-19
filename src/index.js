@@ -34,7 +34,7 @@ const glob = require("glob");
   //connecting to the discord bot
   client.on("ready", () => {
     console.log(
-      `Discord Client attached to express, logged in as: ${client.user.tag} \nBTX Internal Blockchian online and awaiting requests. \nBotrix Network online.`
+      `Discord Client attached to express.`
     );
   });
 
