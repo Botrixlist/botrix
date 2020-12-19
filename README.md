@@ -1,6 +1,7 @@
 # Botrix
 
 ![Botrix](https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png)
+
 An Opensource discord bot list developed by Windows, Awish, Mei-chan, Toxic-dev, PixelSized, Dylan James to hopefully replace [this](https://github.com/Sank6/Discord-Bot-List). If you want to contribute open a pull request and the development team will take a look!
 
 # Features
