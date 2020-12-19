@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "clientSecret": "",
+  "domain": "",
+  "MongoDbServer": "",
+  "Token": "",
+  "ServerToken": "",
+  "port": "80",
+  "AppId": "",
+  "callback": "",
+  "OWNER_USERS": [
+
+  ],
+  "ADMIN_USERS": [
+
+  ],
+  "COMMANDS_ROLE": [
+
+  ],
+  "UNVERIFIED_ROLE": "",
+  "VERIFIED_ROLE": "",
+  "GUILD_ID": "",
+  "BOT_DEVELOPER_ROLE_ID": "",
+  "BOT_DEVELOPER_ROLE_ID_VERIFIED": "",
+  "MOD_LOG": "",
+  "VOTE_LOG": "",
+  "greeting_chan": "",
+  "leave_chan": "",
+  "logging_chan": "",
+  "prefix": "*",
+  "embed_color": "",
+  "embed_guildname": "",
+  "CERT_LOGS": "",
+  "PAYPAL_CLIENT_ID":"",
+  "PAYPAL_CLIENT_SECRET": "",
+  "maintenince": false
+}
