@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botrix | Discord Bot List</title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="shortcut icon" href="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <script async src="https://arc.io/widget.js#B53NPMmi"></script>
+    <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+    <link rel="icon" 
+      type="image/png" 
+      href="https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png" />
+    <script src="/js/bots/user/min/edit.min.js"></script>
+</head>
+<body onload='onload()'>
+    <%- include("templates/bar") %>
+        <div class='container' style='background-color: #23272A; border-radius: 20px; width: 100%;'>
+            <h1 style='padding-top: 30px;'>Edit <%= bot.username %></h1>
+            <br>
+            <hr>
+            <br>
+            <p id='err' style='color: red;'>You must fill out all the fields~!</p>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Client ID<p style='color: red; float: left;'>*</p></p>
+                <input class='input' style='color: grey;' placeholder="Client Id" value='<%= bot.botid %>' readonly id='id'>
+            </div>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Prefix<p style='color: red; float: left;'>*</p></p>
+                <input class='input' value='<%= bot.prefix %>' placeholder="Prefix" id='prefix'>
+            </div>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Short Description<p style='color: red; float: left;'>*</p></p>
+                <input class='input' value='<%= bot.description %>' placeholder="Short Description" id='short'>
+            </div>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Support server<p style='color: red; float: left;'>*</p></p>
+                <input class='input' value='<%= bot.support %>' placeholder="Support Server" id='support'>
+            </div>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Website</p>
+                <input class='input' value='<%= bot.website %>' placeholder="Bot website" id='web'>
+            </div>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Invite Link<p style='color: red; float: left;'>*</p></p>
+                <input class='input' value='<%= bot.invite %>' placeholder="Custom Invite Link" id='invite'>
+            </div>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Bot Library</p>
+                <input class='input' value='<%= bot.botLibrary %>' placeholder="Bot Library" id='library'>
+            </div>
+            <br>
+            <p style='color: red;'>Description Supports <a href='https://www.markdownguide.org/getting-started/' style='color: red; text-decoration-line: underline;'>markdown</a> <bold>Not HTML</bold></p>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;' >Markdown Description<p style='color: red; float: left;'>*</p></p>
+                <textarea class='input' id='long' style="width: 100%; height: 100px" value='<%= bot.long %>' placeholder="Long Description (Supports Markdown)" id='long'><%= bot.long %></textarea>
+            </div>
+            <br>
+            <div class='inputHolder'>
+              <p style='float: left; padding: 0px 10px;' >Discord Webhook URL<p style='color: red; float: left;'></p></p>
+                <input name="webhook" class="input" type="text" value='<%= bot.webhook %>' id='webhook' placeholder="i.e https://discordapp.com/api/webhooks/<channel_ID>/<token>"></input>
+            </div>  
+            <br>
+            <div class="inputHolder">
+                <p>Tags (Max 5, press enter/return to add tag)</p>
+                <div class="tag-container">
+                    <input />  
+                    
+                </div>
+            </div>
+            <br>
+            <p>Banner Image</p>
+            <p>This will be displayed practically everywhere your bot is seen on botrix, make it pretty ;)</p>
+            <input type='file' class='button' name='filename' id='banner'>
+            <br>
+            <img src='<%= bot.bannerURL %>' id='bannerImage' height="200px">
+            <br>
+            <br>
+            <button id='submit' onclick='submit()'class='button'>Submit</button> 
+            <br>
+        </div>
+
+
+
+        <script>
+
+            var listOfSupportedTags = ['NSFW', 'Fun', 'Music', 'Utility', 'Moderation', 'Economy', 'Anime'];
+            var tagContainer = document.querySelector('.tag-container');
+            var inputHolder = document.querySelector('.input-holder');
+            var input = document.querySelector('.tag-container input');
+            var tags = [];
+            var botTags = "<%= bot.botTags %>";
+            var tagUsed = false;
+
+            botTags = botTags.split(",")
+    
+            function createTag(label) {
+                const div = document.createElement('div');
+                div.setAttribute('class', 'tag');
+                const span = document.createElement('span');
+                span.innerHTML = label;
+                const closeIcon = document.createElement('i');
+                closeIcon.innerHTML = 'close';
+                closeIcon.setAttribute('class', 'material-icons');
+                closeIcon.setAttribute('data-item', label);
+                div.appendChild(span);
+                div.appendChild(closeIcon);
+                return div;
+            }
+    
+            function clearTags() {
+                document.querySelectorAll('.tag').forEach(tag => {
+                    tag.parentElement.removeChild(tag);
+                });
+            }
+    
+            function addTags() {
+                tagUsed = false;
+                clearTags();
+                tags.slice().reverse().forEach(tag => {
+                    tagContainer.prepend(createTag(tag));
+                });
+            }
+    
+            input.addEventListener('keyup', (key) => {
+                if(key.keyCode == 13){
+                    if(tags.length <= 5){
+                                if(!tags.includes(input.value.toLowerCase())){
+                                    tags.push(input.value); 
+                                    addTags();
+                                    input.value = '';
+                                    tagUsed = true;
+                            } else {
+                                document.getElementById('error').style.display = 'block';
+                                console.log("Windows is stupid ;-;")
+                                tagContainer.style.webkitAnimationName = 'shake';
+                                tagContainer.style.webkitAnimationDuration = '0.2s';
+            
+                                setTimeout(() => {
+                                    tagContainer.style.webkitAnimationName = '';
+                                }, 200);
+                            }
+                        }
+
+    
+                }
+            })
+    
+            document.addEventListener('click', (e) => {
+                if (e.target.tagName === 'I') {
+                    const tagLabel = e.target.getAttribute('data-item');
+                    const index = tags.indexOf(tagLabel);
+                    tags = [...tags.slice(0, index), ...tags.slice(index+1)];
+                    addTags();    
+                }
+            })
+
+
+            let uploadedUrl = "<%= bot.bannerURL %>" || null;
+            // select file input
+            const bannerInput = document.getElementById('banner');
+            
+            const uploadFile = (file) => {
+            
+                // add file to FormData object
+                const fd = new FormData();
+                fd.append('filename', file);
+            
+                // send `POST` request
+                fetch('https://cdn.botrix.cc/uploadBanner', {
+                    method: 'POST',
+                    body: fd
+                })
+                .then(res => {
+                    document.getElementById("bannerImage").src = `https://cdn.botrix.cc/banner/${uploadedUrl}`;
+                    document.getElementById("banenrImage").style.height  = "100px";
+                    uploadedUrl = `https://cdn.botrix.cc/banner/${uploadedUrl}`;
+                })
+                .then(json => console.log(json))
+                .catch(err => console.error(err));
+            }
+            
+            if(botTags){
+
+                botTags.forEach(tag => {
+                    tagUsed = false;
+                    clearTags();
+                    tags.slice().reverse().forEach(tag => {
+                        tagContainer.prepend(createTag(tag));
+                    });
+                })
+            }
+            // add event listener
+            bannerInput.addEventListener('change', async () => {
+                uploadedUrl = `banner_${makeid(16)}.png`;
+                var blob = await bannerInput.files[0].slice(0, bannerInput.files[0].size, 'image/png'); 
+                var newFile = await new File([blob], uploadedUrl, {type: 'image/png'});
+                await uploadFile(newFile);
+            });
+            
+            function makeid(length) {
+                var result           = '';
+                var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                var charactersLength = characters.length;
+                for ( var i = 0; i < length; i++ ) {
+                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+                return result;
+            }
+            
+        </script>
+</body>
+</html>

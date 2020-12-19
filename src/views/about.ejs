@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta property="og:title" content="Botrix | Discord Bot List" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://botrix.cc/" />
+        <meta property="og:image" content="https://media.discordapp.net/attachments/747602999035166810/748399137644609676/logo-alt.png" />
+        <meta property="og:description" content="The easiest and fastest website to grow your discord bot and community!" />
+        <meta name="theme-color" content="#FF2142">
+        <meta name="twitter:card" content="summary">
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+    <link rel="shortcut icon" href="">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <title>Botrix</title>
+   <script src="/js/main.js"></script>
+</head>
+<body>
+    <%- include("templates/bar") %>
+    <div class='centered'>
+        <div style='padding-top: 30px;'>
+            <h1>About botrix</h1>
+            <br>
+            <hr>
+            <br>
+            <h1 style='color: white;'>The Team</h1>
+            <br>
+            <hr>
+            <br>
+
+            <div id='cards'>
+                <div class="card">
+                    <div style='padding-top: 20px;'>
+                        <img src="https://cdn.discordapp.com/avatars/216852520088109056/a_4a37244e44bf2e1f9529c9d986f8bc87.gif?size=512" alt="Avatar" style="width:50%; border-radius: 50%;">
+                    </div>
+                    <div class="peopleContainer">
+                      <h4><b>PixelSized</b></h4> 
+                      <p>Project Manager</p> 
+                    </div>
+                </div>
+                <div class="card">
+                    <div style='padding-top: 20px;'>
+                        <img src="https://cdn.discordapp.com/avatars/222042705285480448/bd0f58b201924a029a2165cded4d091e.webp?size=512" alt="Avatar" style="width:50%; border-radius: 50%;">
+                    </div>
+                    <div class="peopleContainer">
+                      <h4><b>Windows</b></h4> 
+                      <p>Lead developer</p> 
+                    </div>
+                </div>
+                <div class="card">
+                    <div style='padding-top: 20px;'>
+                        <img src="https://cdn.discordapp.com/avatars/671355502399193128/4386e994dcbb84a3b0f0aaa8ddb98a79.png?size=512" alt="Avatar" style="width:50%; border-radius: 50%;">
+                    </div>
+                    <div class="peopleContainer">
+                      <h4><b>Awish</b></h4> 
+                      <p>Developer / Approver</p> 
+                    </div>
+                </div>
+            </div>
+            <br>
+            <h1 style='color: white;'>Powered by</h1>
+            <br>
+            <hr>
+            <br>
+            <div class='belowUser'>
+                <div class='item1'>
+                    <br>
+                    <h1 style='color: white;'><span><</span>%= <span>EJS</span><span> %</span><span>></span></h1>
+                </div>
+                <div class='item2'>
+                    <img width='300px' style='justify-content: center;' height='100px' src='https://bots.ondiscord.xyz/_nuxt/img/mongodb.25bd805.svg'>
+                </div>
+                <div class='item3'>
+                    <br>
+                    <img src='https://www.filestack.com/assets/base/fs-logo-8ad73c5ae2b7a85eaac0378ce7b74a0f6240b45f317f169ae503127054e97be9.svg'>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <script>var user = <%= user %> 
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <title>Botrix</title>
+    <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+</head>
+<body onload='getErr()'>
+    <%- include("../templates/bar") %>
+
+    <div class='centered' style='padding-top: 80px;'>
+        <h1>Uh oh.. There was an error processing your request.. Maybe this error message will help!</h1>
+    </div>
+    <div class='centered' style='margin: 20px;'>
+        <p id='errorBox'></p>
+    </div>
+
+    <script>
+
+        function getErr(){
+            let ermsg = document.createElement("h4");
+            let url = new URL(window.location.href)
+            let err = url.searchParams.get('err');
+            console.log(err);
+            if(!err) ermsg.innerHTML = "Unknown error! Join our <a href='https://discord.gg/ECdH3Sw'>server</a> for more help";
+            if(err == "usernotinguild") ermsg.innerHTML = "You must be in our server to add bots! <br><a href='https://discord.gg/ECdH3Sw'>Join server</a>";
+            if(err == "botAdded") ermsg.innerHTML = "This bot has already been added to the list!";
+            if(err == "htmlNotSupported") ermsg.innerHTML = "Html is not supported";
+            if(err == "botNotInGuild") ermsg.innerHTML = "Our bot is not in your guild!";
+            if(err == "charLength") ermsg.innerHTML = "Your short description is longer than 120 chars";
+            if(err == "serverOnList") ermsg.innerHTML = "This server has already been added to the list!";
+            if(err == "ownersNotInGuild") ermsg.innerHTML = "The owners are not in the guild!";
+            if(err == "notFound") ermsg.innerHTML = "The bot you are trying to view was not found";
+            if(err == "alreadyOnList") ermsg.innerHTML = "This bot is already on the list!";
+            if(err == "voteFailed") ermsg.innerHTML = "You can only vote once a day!";
+            if(err == "userIsNotBot") ermsg.innerHTML = "The ID you have entered is invalid!";
+            document.getElementById('errorBox').appendChild(ermsg)
+        }
+
+    </script>
+</body>
+</html>

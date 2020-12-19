@@ -1,0 +1,19 @@
+<div class="card" style='background-image:  linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("<%= i.bannerURL %>"); background-position: center; background-repeat: no-repeat;'>
+    <% if(i.certified == "approved"){  %>
+        <div class='badgeHolderCards' >
+            <img height='50' class='badgeCard' alt='Botrix Certified' src='https://cdn.discordapp.com/attachments/748340693881192484/760017137351000134/cert-badge.png'>    
+        </div>
+    <% } %>
+    <div class='iconHolder' style='padding: 20px;'>
+        <img src="<%= i.logo %>" class="icon">
+    </div>
+    <h3 class="title" class=' right: 10px;'>
+        <%= i.username %>
+    </h3>
+    <p class="desc" style='color: white;'>
+        <%= i.description %>
+    </p>
+    <a class="bot-btns" style="border-color: black; width: auto; max-width: 50%; top: -50px; right: 20px; float: right;" href="/bots/<%= i.botid %>/">View Bot Info</a>
+    <a class="bot-btns" style="border-color: black; width: auto; max-width: 50%; top: -50px; right: 40px; float: right;" href="<%= i.invite %>">Invite</a>
+    <a class='topTagsCard'><%= i.votes %> votes</a>
+</div>

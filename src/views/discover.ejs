@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botrix</title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="shortcut icon" href="">
+    <script src="/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script data-ad-client="ca-pub-9055844767357307" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+    <link rel="icon" 
+    type="image/png" 
+    href="https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png" />
+    <title>Botrix</title>
+    <script src="/js/nav.js"></script>
+</head>
+<body onload='onload()'>
+    <%- include("templates/bar") %>
+    <br>
+    <br>
+
+    <div class='content'>
+        <br>
+        <div class='centered'>
+            <h1>Find the perfect bot for your server!</h1>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class='featured'>
+    
+                <h1 style='padding: 50px 50px;'>Featured Music Bots:</h1>
+            <div id='cards'>
+                <% for(let i of music) { %>
+                    <div class="card" style='background-image:  linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("<%= i.bannerURL %>"); background-position: center; background-repeat: no-repeat;'>
+                        <div class='iconHolder' style='padding: 20px;'>
+                            <img src="<%= i.logo %>" class="icon">
+                        </div>
+                        <h3 class="title" class=' right: 10px;'>
+                            <%= i.username %>
+                        </h3>
+                        <p class="desc" style='color: white;'>
+                            <%= i.description %>
+                        </p>
+                        <a class="bot-btns" style="border-color: black; width: auto; max-width: 50%; top: -50px; right: 20px; float: right;" href="/bots/<%= i.botid %>/">View Bot Info</a>
+                        <a class="bot-btns" style="border-color: black; width: auto; max-width: 50%; top: -50px; right: 40px; float: right;" href="<%= i.invite %>">Invite</a>
+                        <a class='topTagsCard'><%= i.votes %> votes</a>
+                    </div>
+                <% } %>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class='featured'>
+            <h1 style='padding: 50px 50px;'>Featured Moderation Bots:</h1>
+            <div id='cards'>
+                <% for(let i of moderation) { %>
+                    <div class="card" style='background-image:  linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("<%= i.bannerURL %>"); background-position: center; background-repeat: no-repeat;'>
+                        <div class='iconHolder' style='padding: 20px;'>
+                            <img src="<%= i.logo %>" class="icon">
+                        </div>
+                        <h3 class="title" class=' right: 10px;'>
+                            <%= i.username %>
+                        </h3>
+                        <p class="desc" style='color: white;'>
+                            <%= i.description %>
+                        </p>
+                        <a class="bot-btns" style="border-color: black; width: auto; max-width: 50%; top: -50px; right: 20px; float: right;" href="/bots/<%= i.botid %>/">View Bot Info</a>
+                        <a class="bot-btns" style="border-color: black; width: auto; max-width: 50%; top: -50px; right: 40px; float: right;" href="<%= i.invite %>">Invite</a>
+                        <a class='topTagsCard'><%= i.votes %> votes</a>
+                    </div>
+                <% } %>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class='featured'>
+            <h1 style='padding: 50px 50px;'>Trending Bots:</h1>
+            <div id='cards'>
+                <% for(let i of trending) { %>
+                    <div class="card" style='background-image:  linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("<%= i.bannerURL %>"); background-position: center; background-repeat: no-repeat;'>
+                        <div class='iconHolder' style='padding: 20px;'>
+                            <img src="<%= i.logo %>" class="icon">
+                        </div>
+                        <h3 class="title" class=' right: 10px;'>
+                            <%= i.username %>
+                        </h3>
+                        <p class="desc" style='color: white;'>
+                            <%= i.description %>
+                        </p>
+                        <a class="bot-btns" style="border-color: black; width: auto; max-width: 50%; top: -50px; right: 20px; float: right;" href="/bots/<%= i.botid %>/">View Bot Info</a>
+                        <a class="bot-btns" style="border-color: black; width: auto; max-width: 50%; top: -50px; right: 40px; float: right;" href="<%= i.invite %>">Invite</a>
+                        <a class='topTagsCard'><%= i.votes %> votes</a>
+                    </div>
+                <% } %>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class='featured'>
+            <h1 style='padding: 50px 50px;'>New and fresh</h1>
+            <div id='cards'>
+                <% for(let i of new_) { %>
+                    <div class="card" style='background-image:  linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("<%= i.bannerURL %>"); background-position: center; background-repeat: no-repeat;'>
+                        <div class='iconHolder' style='padding: 20px;'>
+                            <img src="<%= i.logo %>" class="icon">
+                        </div>
+                        <h3 class="title" class=' right: 10px;'>
+                            <%= i.username %>
+                        </h3>
+                        <p class="desc" style='color: white;'>
+                            <%= i.description %>
+                        </p>
+                        <a class="bot-btns" style="border-color: black; width: auto; max-width: 50%; top: -50px; right: 20px; float: right;" href="/bots/<%= i.botid %>/">View Bot Info</a>
+                        <a class="bot-btns" style="border-color: black; width: auto; max-width: 50%; top: -50px; right: 40px; float: right;" href="<%= i.invite %>">Invite</a>
+                        <a class='topTagsCard'><%= i.votes %> votes</a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+    <script>
+        var user = "<%= user %>";
+    </script>
+</body>
+</html>
