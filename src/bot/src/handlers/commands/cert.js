@@ -22,7 +22,7 @@ module.exports = {
         .setTitle("Whoops, Something went wrong on our end.")
         .setColor("RED")
         .setDescription(
-          "To move forward, please rerun this command mentioning a specific bot."
+          "To continue, please re-run this command mentioning a specific bot."
         )
         .setTimestamp()
         .setFooter("© Botrix | 2020");
@@ -43,7 +43,7 @@ module.exports = {
     if (!bots_ && !servers_) {
       const error = new MessageEmbed()
         .setAuthor("Botrix", message.guild.iconURL())
-        .setTitle("This bot is not in the cert queue!")
+        .setTitle("This bot is not in the certification queue!")
         .setColor("RED")
         .setDescription(
           'This bot/guild does not exist or does not have a "pending" status'
@@ -87,7 +87,7 @@ module.exports = {
         .setDescription("An error has occured, please check logs.")
         .setTimestamp()
         .setFooter("© Botrix | 2020");
-      message.channel.send(e, unknownErr);
+      return message.channel.send(e, unknownErr);
     }
   },
 };
