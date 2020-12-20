@@ -39,5 +39,5 @@
   "CERT_LOGS": "",
   "PAYPAL_CLIENT_ID":"",
   "PAYPAL_CLIENT_SECRET": "",
-  "maintenince": false
+  "maintenince": true
 }
