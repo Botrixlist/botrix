@@ -46,7 +46,7 @@ route.post('/', async (req, res, next) => {
         }).save();
     
         try{
-            let r = req.app.get('client').guilds.cache.get(config.GUILD_ID).roles.cache.find(r => r.id === '747393632947929139');
+            let r = req.app.get('client').guilds.cache.get(config.GUILD_ID).roles.cache.find(r => r.id === '/*Put the role for Unverified Bot here*/');
             r.setMentionable(true)
             var e = new discord.MessageEmbed()
             .setTitle('Bot Added!')
