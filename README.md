@@ -24,6 +24,9 @@ An Opensource discord bot list developed by Windows, Awish, Mei-chan, Toxic-dev,
 - Easy-to-use Admin Panel
 ![Botrix Admin Panel](https://i.imgur.com/RazPeYV.png)
 
+- Stylish 404 Page
+![Botrix 404 Page](https://i.imgur.com/PcfjLGA.png)
+
 - Personal CDN
 
 # Prerequisites
