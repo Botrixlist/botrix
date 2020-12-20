@@ -11,12 +11,18 @@
   "OWNER_USERS": [
 
   ],
+  
+  //Put their IDs so that they can access the mod panel
   "ADMIN_USERS": [
 
   ],
+  
+  //Put a role here and check it for members who can use your bot's commands.
   "COMMANDS_ROLE": [
 
   ],
+  
+  //For the Bot
   "UNVERIFIED_ROLE": "",
   "VERIFIED_ROLE": "",
   "GUILD_ID": "",
