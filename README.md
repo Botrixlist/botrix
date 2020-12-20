@@ -21,6 +21,9 @@ An Opensource discord bot list developed by Windows, Awish, Mei-chan, Toxic-dev,
 - Certified bot program
 ![Botrix Bot Certification Program](https://i.imgur.com/xYmHg6k.png)
 
+- Easy-to-use Admin Panel
+![Botrix Admin Panel](https://i.imgur.com/RazPeYV.png)
+
 - Personal CDN
 
 # Prerequisites
