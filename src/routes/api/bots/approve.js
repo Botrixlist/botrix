@@ -27,7 +27,7 @@ route.get('/:id', async (req, res, next) => {
     .addField(`Info`, `**Approved by: <@${req.user.id}>** \n  Owner: <@${bot.owners[0]}> \n Bot: <@${bot.botid}> \n Prefix: ${bot.prefix}`, true);
     req.app.get('client').channels.cache.find(c => c.id === config.MOD_LOG).send(e)
 
-    //This is utterly fucking retarded discord.js
+ 
     let client = req.app.get('client')
 
     let unverifiedRole = client.guilds.cache.get(config.GUILD_ID).roles.cache.find(r => r.id === config.UNVERIFIED_ROLE)
