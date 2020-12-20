@@ -7,10 +7,20 @@ An Opensource discord bot list developed by Windows, Awish, Mei-chan, Toxic-dev,
 # Features
 
 - Clean and modern UI
+![Botrix Clean and Modern UI](https://i.imgur.com/AK1cTYv.png)
+
 - Bot awards plus currency system (Setup for paypal)
+![Botrix Award System](https://i.imgur.com/1fqoGsm.png)
+
 - Server listing (beta)
+![Botrix Server Listing](https://i.imgur.com/OyFsH6d.png)
+
 - Bot banners
+![Botrix Bot Banner](https://i.imgur.com/hgTJhGi.png)
+
 - Certified bot program
+![Botrix Bot Certification Program](https://i.imgur.com/xYmHg6k.png)
+
 - Personal CDN
 
 # Prerequisites
