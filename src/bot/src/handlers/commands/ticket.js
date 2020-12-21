@@ -11,12 +11,12 @@ module.exports = {
                 type: `text`,
                 permissionOverwrites: [
                     {
-                        id: "788790991267561522",
-                        allow: [`VIEW_CHANNEL`, `SEND_MESSAGES`]
+                        id: //You can add any ID which you want them to be able to access the permissions listed below,
+                        allow: [//Permissions Field]
                     },
                     {
                         id: message.author.id,
-                        allow: [`VIEW_CHANNEL`, `SEND_MESSAGES`]
+                        allow: [`VIEW_CHANNEL`, `SEND_MESSAGES`, `READ_MESSAGE_HISTORY`]
                     },
                     {
                         id: message.guild.id,
