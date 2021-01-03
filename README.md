@@ -1,4 +1,4 @@
-# Botrix
+# Botrix (https://botrix.cc/)
 
 ![Botrix](https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png)
 
