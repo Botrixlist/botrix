@@ -12,7 +12,8 @@ An Opensource discord bot list developed by Windows, Awish, Mei-chan, Toxic-dev,
     </a>
             <a href="https://tritanbot.xyz/support">
       <img src="https://img.shields.io/badge/Support:-Discord Server%20%E2%86%92-gray.svg?colorA=655BE1&colorB=4F44D6&style=for-the-badge"/>
-    </a>            
+    </a>
+    </p>
 
 <h2>Can I add my bot to Botrix?</h2>
 
