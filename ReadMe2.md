@@ -3,7 +3,7 @@
 <br>
 Botrix </h2>
   <p align="center">
-An Opensource discord bot list developed by Windows, Awish, Mei-chan, Toxic-dev, PixelSized, Dylan James to hopefully replace <a href='https://github.com/Sank6/Discord-Bot-List'>this.</a> If you want to contribute open a pull request and the development team will take a look! For support, please join our <a href='https://botric.cc/join'>support server.</a></p>
+An Opensource discord bot list developed by Windows, Awish, Mei-chan, Toxic-dev, PixelSized, Dylan James to hopefully replace <a href='https://github.com/Sank6/Discord-Bot-List'>this.</a> If you want to contribute open a pull request and the development team will take a look! For support, please join our <a href='https://botric.cc/join'>support server.</a>
         <a href="https://botrix.cc/join">
       <img src="https://img.shields.io/badge/Maintained%20by:-The Botrix Team%20%E2%86%92-gray.svg?colorA=655BE1&colorB=4F44D6&style=for-the-badge"/>
     </a>
