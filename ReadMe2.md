@@ -16,10 +16,6 @@ An Opensource discord bot list developed by Windows, Awish, Mei-chan, Toxic-dev,
 
 <h2>Can I add my bot to Botrix?</h2>
 
-[![Discord Bots](https://top.gg/api/widget/status/732783297872003114.svg)](https://top.gg/bot/732783297872003114)
-[![Discord Bots](https://top.gg/api/widget/servers/732783297872003114.svg)](https://top.gg/bot/732783297872003114)
-[![Discord Bots](https://top.gg/api/widget/upvotes/732783297872003114.svg)](https://top.gg/bot/732783297872003114/vote)
-
 Yes, please go [here](https://botrix.cc/add) to apply for your bot. If you require support, or you would like to give any feedback or suggestions, please join [the support server](https://botrix.cc/join).
 
 <h2> Documentation </h2>
