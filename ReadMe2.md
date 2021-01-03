@@ -22,7 +22,6 @@ Yes, please go [here](https://botrix.cc/add) to apply for your bot. If you requi
 
 While we do offer some support for hosting Botrix on your own, please note that documentation
 
-
 <h2> Should I Run Botrix Locally? </h2>
 
 Probably not. Botrix has enough moving pieces that running a local version is complicated. The main purpose of having the source released is to allow others to understand and audit the functionality. The code is by no means meant to be easy to setup or bootstrap, and I don't plan on supporting folks trying to run locally. That said, feel free to run a local version of Botrix for your own purposes, (but not a public version please).
@@ -54,6 +53,29 @@ The next thing we will configure is the owner users, these users will have acses
 
 This part of the guide will showcase on how to setup an image hosting service to upload banners on, for this you **will** need a vps. In the root dir of botrix go to botrix-fielupload
 in config.json setup the cdn url to your vps's ip or a subdomain pointing to the vps. Finally run it on the vps and your cdn network will be up.
+
+<h2> Features </h2>
+
+- Clean and modern UI
+![Botrix Clean and Modern UI](https://i.imgur.com/AK1cTYv.png)
+
+- Bot awards plus currency system (Configured for Paypal)
+![Botrix Award System](https://i.imgur.com/1fqoGsm.png)
+
+- Server Listing (Beta)
+![Botrix Server Listing](https://i.imgur.com/OyFsH6d.png)
+
+- Custom Bot Banners
+![Botrix Bot Banner](https://i.imgur.com/hgTJhGi.png)
+
+- Certified Bot Program
+![Botrix Bot Certification Program](https://i.imgur.com/xYmHg6k.png)
+
+- Easy-to-use Admin Panel
+![Botrix Admin Panel](https://i.imgur.com/RazPeYV.png)
+
+- Stylish & Responsive 404 Page
+![Botrix 404 Page](https://i.imgur.com/PcfjLGA.png)
 
 
 <h2> Contributing </h2>
