@@ -3,7 +3,7 @@
 <br>
 Botrix </h2>
   <p align="center">
-An Opensource discord bot list developed by Windows, Awish, Mei-chan, Toxic-dev, PixelSized, Dylan James to hopefully replace this. If you want to contribute open a pull request and the development team will take a look! For support, please join our [support server](https://botrix.cc/join).</p>
+An Opensource discord bot list developed by Windows, Awish, Mei-chan, Toxic-dev, PixelSized, Dylan James to hopefully replace <a href='https://github.com/Sank6/Discord-Bot-List'>this.</a> If you want to contribute open a pull request and the development team will take a look! For support, please join our <a href='https://botric.cc/join'>support server.</a></p>
         <a href="https://botrix.cc/join">
       <img src="https://img.shields.io/badge/Maintained%20by:-The Botrix Team%20%E2%86%92-gray.svg?colorA=655BE1&colorB=4F44D6&style=for-the-badge"/>
     </a>
@@ -84,8 +84,8 @@ in config.json setup the cdn url to your vps's ip or a subdomain pointing to the
 
 Maybe. Feel free to submit PRs and issues, but unless they are explicitly bug fixes that have good documentation and clean code, I likely won't merge. Features will not be accepted through PR unless stated elsewhere. Do not submit feedback on this repository, the server is the right place for that. PRs focused around the frontend and web panel are more likely to be accepted.
 
-1. [Fork the repository](https://github.com/team-tritan/tritan-bot/fork)
-2. Clone your fork: `git clone https://gitlab.com/your-username/tritan-bot.git`
+1. [Fork the repository](https://github.com/Botrixlist/botrix/fork)
+2. Clone your fork: `git clone https://github.com/Botrixlist/botrix.git`
 3. Create your feature branch: `git checkout -b my-new-feature`
 4. Commit your changes: `git commit -am 'Add some feature'`
 5. Push to the branch: `git push origin my-new-feature`
