@@ -1,0 +1,8 @@
+
+contact_links:
+  - name: ❔ Questions / Help
+    url: https://botrix.cc/join
+    about: Please join our support server if you have any questions in regards to our service that AREN'T bug related.
+  - name: 📃 Discord.js Guide
+    url: https://discordjs.guide/
+    about: The official guide for discord.js
