@@ -103,3 +103,15 @@ Maybe. Feel free to submit PRs and issues, but unless they are explicitly bug fi
 <h2> Inspiration </h2>
 
 - Our inspiration to create Botrix was to hopefully replace [this](https://github.com/Sank6/Discord-Bot-List), we all agree that it's been around to long and we decided to redefine how botlists are made. 
+
+
+## How to get a MongoDB Databse for free
+
+Go to  https://clever-cloud.com
+Sign up.
+Click your name in top left.
+Click Create then click an add on.
+Click MongoDB.
+Click Dev (It's free) 
+Name the server.
+Copy the connection URL, and put it in your config.
