@@ -12,17 +12,17 @@
 
   ],
   
-  //Put their IDs so that they can access the mod panel
+ 
   "ADMIN_USERS": [
 
   ],
   
-  //Put a role here and check it for members who can use your bot's commands.
+  
   "COMMANDS_ROLE": [
 
   ],
   
-  //For the Bot
+ 
   "UNVERIFIED_ROLE": "",
   "VERIFIED_ROLE": "",
   "GUILD_ID": "",
@@ -33,7 +33,7 @@
   "greeting_chan": "",
   "leave_chan": "",
   "logging_chan": "",
-  "prefix": "*", //Default Prefix is set as '*'. You can change to anything you like
+  "prefix": "*",
   "embed_color": "",
   "embed_guildname": "",
   "CERT_LOGS": "",
