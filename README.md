@@ -25,7 +25,7 @@ Yes, please go [here](https://botrix.cc/add) to apply for your bot. If you requi
 
 <h2> Documentation </h2>
 
-While we do offer some support for hosting Botrix on your own, please note that documentation
+While we do offer some support for hosting Botrix on your own, please note that hosting locally is not fully supported and we aren't liable for running your own instance.
 
 <h2> Should I Run Botrix Locally? </h2>
 
