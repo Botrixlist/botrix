@@ -34,7 +34,7 @@ const glob = require("glob");
   //connecting to the discord bot
   client.on("ready", () => {
     console.log(
-      `Discord Client attached to express.`
+      `Discord Client attached to express, logged in as: ${client.user.tag} \nBTX Internal Blockchian online and awaiting requests. \nBotrix Network online.`
     );
   });
 
@@ -79,7 +79,7 @@ const glob = require("glob");
     session({
       store: new MemoryStore({ checkPeriod: 86400000 }),
       secret:
-        "windowsiscool",
+        "#@%#&^$^$%@$^$&%#$%@#$%$^%&$%^#$%@#$%#E%#%@$FEErfgr3g#%GT%536c53cc6%5%tv%4y4hrgrggrgrgf4n",
       resave: false,
       saveUninitialized: false,
     })
