@@ -34,9 +34,7 @@ Probably not. Botrix has enough moving pieces that running a local version is co
 <h2> Self-hosting Agreement </h2>
 
 - You may not use the Botrix logo or name within derivative bots.
-- You may not host a public version of Botrix.
 - You may not charge for the usage of your instance of Botrix.
-- You may not provide support for Botrix.
 - You may not remove any credits to the original author anywhere within this bot. We know what code we've written, and we will recognize it.
 
 <h2> Requirements </h2>
