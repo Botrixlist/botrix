@@ -25,8 +25,8 @@
             let url = new URL(window.location.href)
             let err = url.searchParams.get('err');
             console.log(err);
-            if(!err) ermsg.innerHTML = "Unknown error! Join our <a href='https://discord.gg/ECdH3Sw'>server</a> for more help";
-            if(err == "usernotinguild") ermsg.innerHTML = "You must be in our server to add bots! <br><a href='https://discord.gg/ECdH3Sw'>Join server</a>";
+            if(!err) ermsg.innerHTML = "Unknown error! Join our <a href='https://discord.gg/MdXpcvHDfw'>server</a> for more help";
+            if(err == "usernotinguild") ermsg.innerHTML = "You must be in our server to add bots! <br><a href='https://discord.gg/MdXpcvHDfw'>Join server</a>";
             if(err == "botAdded") ermsg.innerHTML = "This bot has already been added to the list!";
             if(err == "htmlNotSupported") ermsg.innerHTML = "Html is not supported";
             if(err == "botNotInGuild") ermsg.innerHTML = "Our bot is not in your guild!";
