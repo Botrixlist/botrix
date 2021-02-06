@@ -1,30 +1,30 @@
 {
-  "id": "", // Bot ID
-  "clientSecret": "", // Bot Discord Secret
-  "domain": "", // Domain 
-  "MongoDbServer": "", // MongoDB Server
-  "Token": "", // Bot Token
-  "ServerToken": "", // Bot #2 Token
-  "port": "80", // Port
-  "AppId": "", // Client ID
+  "id": "", #Bot ID
+  "clientSecret": "", # Bot Discord Secret
+  "domain": "", # Domain 
+  "MongoDbServer": "", # MongoDB Server
+  "Token": "", # Bot Token
+  "ServerToken": "", # Bot #2 Token
+  "port": "80", # Port
+  "AppId": "", # Client ID
   "OWNER_USERS": [ 
-    // 00000000000, 
-    // 00000000000,
-    // 00000000000
+    # 00000000000, 
+    # 00000000000,
+    # 00000000000
   ],
   
  
   "ADMIN_USERS": [
-    // 00000000000, 
-    // 00000000000,
-    // 00000000000
+    # 00000000000, 
+    # 00000000000,
+    # 00000000000
   ],
   
   
   "COMMANDS_ROLE": [
-    // 00000000000, 
-    // 00000000000,
-    // 00000000000
+    # 00000000000, 
+    # 00000000000,
+    # 00000000000
   ],
   
  
