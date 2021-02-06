@@ -35,7 +35,7 @@
   "BOT_DEVELOPER_ROLE_ID_VERIFIED": "Bot Dev VERIFIED Role ID",
   "MOD_LOG": "Mod Log Channel ID",
   "VOTE_LOG": "Vote Logs Channel ID",
-  "greeting_chan": " Hello Channel ID"
+  "greeting_chan": " Hello Channel ID",
   "leave_chan": "Goodbye Channel ID",
   "logging_chan": "Logging Channel ID",
   "prefix": "*",
