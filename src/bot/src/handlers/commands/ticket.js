@@ -11,8 +11,8 @@ module.exports = {
                 type: `text`,
                 permissionOverwrites: [
                     {
-                        id: //You can add any ID which you want them to be able to access the permissions listed below,
-                        allow: [//Permissions Field]
+                        id: [], //You can add any ID which you want them to be able to access the permissions listed below,
+                        allow: [] // Permission Field
                     },
                     {
                         id: message.author.id,
