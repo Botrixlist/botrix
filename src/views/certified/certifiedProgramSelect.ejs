@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta property="og:title" content="Botrix | Join The Discord Server" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://botrix.cc/" />
+        <meta property="og:image" content="https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png" />
+        <meta property="og:description" content="You have been invited to join us in the Botrix Community discord server!" />
+        <meta name="theme-color" content="#fca311">
+        <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+        <meta name="twitter:card" content="summary">
+        <meta property="twitter:image" content="https://cdn.discordapp.com/splashes/721282458708082713/fc34242e027249650ab26d99fb1a479a.jpg?size=2048">
+        <link rel="icon" 
+        type="image/png" 
+        href="https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <script async src="https://arc.io/widget.js#B53NPMmi"></script>
+    <link rel="shortcut icon" href="">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <title>Botrix</title>
+   <script src="/js/main.js"></script>
+</head>
+<body>
+    <%- include("../templates/bar") %>
+
+    <div id='selectCard' class='top-padding text-centered'>
+        <h1>Select the type that you would like to certify</h1>
+        <br>
+        <button class='button' onclick="fadeInBots()">Bot</button> 
+        <br>
+        <button class='button' onclick="fadeInServers()">Server</button>
+    </div>
+    <div id='bots'>
+        <% if(bot.length !== 0) { %>
+            <div class='text-centered top-padding'>
+                <img height='400px' src='https://cdn.discordapp.com/attachments/748340693881192484/760017137351000134/cert-badge.png'>
+                <h1>You're so close! Choose a bot that you would like to enroll</h1>
+            </div>
+            <div class='centered'>
+                <% for(let i of bot) { %>
+
+                    <div class="card">
+                        <img src='<%= i.bannerURL %>' onerror="this.src = '<%= i.logo %>' " class='bannerHoler'>
+                        <div class='iconHolder' style='padding: 20px;'>
+                            <img src="<%= i.logo %>" class="icon">
+                        </div>
+                        <h3 class="title" class=' right: 10px;'>
+                            <%= i.username %>
+                        </h3>
+                        <div class='tagsHodler'>
+                            <a class='topTagsCard'><%= i.votes %> votes</a>
+                        </div>
+                        <p class="desc" style='color: white;'>
+                            <%= i.description %>
+                        </p>
+                        <a class="bot-btns" href="/bots/<%= i.botid %>/">View Bot Info</a>
+                        <a class="bot-btns" style="margin-left: 10px;"
+                            href="<%= i.status == "declined" ? "/api/submit" : i.invite %>"><%= i.status == "declined" ? "Resubmit" : "Invite" %></a>
+                        <a class="bot-btns" style="margin-left: 10px;" id='<%= i.botid %>' href="/certified/add/<%= i.botid %>/">Enroll bot</a>
+                        <a class="bot-btns" style="margin-left: 10px;" href="/edit/<%= i.botid %>/">Edit Bot</a>
+                    </div>
+                <% } %>
+            
+            </div>
+        
+            <% } else {  %>
+                <div class='text-centered top-padding'>
+                    <img height='400px' src='https://cdn.discordapp.com/attachments/748340693881192484/760017137351000134/cert-badge.png'>
+                    <h1>You either have no bots, or your bot that you have submitted is pending.</h1>
+                </div>
+            <% } %>
+            
+    </div>
+
+    <div id='servers'>
+        <% if(server.length !== 0) { %>
+            <div class='text-centered top-padding'>
+                <img height='400px' src='https://cdn.discordapp.com/attachments/748340693881192484/760017137351000134/cert-badge.png'>
+                <h1>You're so close! Choose a Server that you would like to enroll</h1>
+            </div>
+            <div class='centered'>
+                <% for(let i of server) { %>
+        
+                    <div class="card" style='background-image:  linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("<%= i.bannerURL %>"); background-position: center; background-repeat: no-repeat;'>
+                        <div class='iconHolder' style='padding: 20px;'>
+                            <img src="<%= i.serverIco %>" class="icon">
+                        </div>
+                        <h3 class="title" class=' right: 10px;'>
+                            <%= i.name %>
+                        </h3>
+                        <p class="desc" style='color: white;'>
+                            <%= i.short %>
+                        </p>
+                        <a class="bot-btns" style="border-color: black; width: auto; max-width: 50%; top: -50px; right: 20px; float: right;" href="/certified/server/add/<%= i.guildID %>/">Enroll Server</a>
+                        <a class="bot-btns" style="border-color: black; width: auto; max-width: 50%; top: -50px; right: 40px; float: right;" href="/servers/server/<%= i.botid %>">View</a>
+                        <a class='topTagsCard'><%= i.votes %> votes</a>
+                    </div>
+                <% } %>
+            
+            </div>
+        
+            <% } else {  %>
+                <div class='text-centered top-padding'>
+                    <img height='400px' src='https://cdn.discordapp.com/attachments/748340693881192484/760017137351000134/cert-badge.png'>
+                    <h1>You either have no servers, or your server that you have submitted is pending.</h1>
+                </div>
+            <% } %>
+            
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('servers').style.display = 'none';
+            document.getElementById('bots').style.display = 'none';
+        });
+ 
+        function fadeInBots(){
+            fade(document.getElementById('selectCard'))
+            document.getElementById('selectCard').style.display = 'none';
+            document.getElementById('bots').style.display = 'block';
+            document.getElementById('bots').style.opacity = 0;
+            unfade(document.getElementById('bots'))
+        }
+
+        function fadeInServers(){
+            fade(document.getElementById('selectCard'))
+            document.getElementById('selectCard').style.display = 'none';
+            document.getElementById('servers').style.display = 'block';
+            document.getElementById('servers').style.opacity = 0;
+            unfade(document.getElementById('servers'))
+        }
+
+        function fade(element) {
+            var op = 1;  // initial opacity
+            var timer = setInterval(function () {
+                if (op <= 0.1){
+                    clearInterval(timer);
+                    element.style.display = 'none';
+                }
+                element.style.opacity = op;
+                element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+                op -= op * 0.1;
+            }, 50);
+        }
+
+        function unfade(element) {
+            var op = 0.1;  // initial opacity
+            element.style.display = 'block';
+            var timer = setInterval(function () {
+                if (op >= 1){
+                    clearInterval(timer);
+                }
+                element.style.opacity = op;
+                element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+                op += op * 0.1;
+            }, 10);
+        }
+                
+    </script>
+</body>
+</html>

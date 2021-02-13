@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botrix - Servers</title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <link rel="icon" 
+    type="image/png" 
+    href="https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png" />
+    <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+    <script src="/js/nav.js"></script>
+    <link rel="shortcut icon" href="">
+    <script src="/js/servers/edit.js"></script>
+
+    <script src="/js/servers/main.js"></script>
+</head>
+<body onload='onload()'>
+    <%- include("templates/bar") %>
+    <div class='container' style='padding-top: 100px;'>
+        <div>
+            <h1>You are editing <%= guild.name %></h1>
+            <p>This server has <%= guild.memberCount %> members.</p>
+            <br>
+            <hr>
+            <br>
+            <br>
+            <div class="inputHolder" >
+                <p style='float: left; padding: 0px 10px;'>Server ID<p style='color: red; float: left;'>*</p></p>
+                <input class='input' placeholder="Server ID" value="<%= guild.id %>" style='color: grey;' id='id' readonly>
+            </div>
+            <br>
+            <div class="inputHolder" >
+                <p style='float: left; padding: 0px 10px;'>Short Description 120 max char limit<p style='color: red; float: left;'>*</p></p>
+                <input class='input' value='<%= data.short %>' placeholder="Short Description" id='short'>
+            </div>
+            <br>
+            <p style='color: red;'>Description Supports <a href='https://www.markdownguide.org/getting-started/' style='color: red; text-decoration-line: underline;'>markdown</a> <bold>Not HTML</bold></p>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Markdown Description<p style='color: red; float: left;'>*</p></p>
+                <textarea class='input' id='long' style="width: 100%; height: 100px" placeholder="Long Description (Supports Markdown)" id='long'><%= data.long %></textarea>
+            </div>
+            <div class="inputHolder" >
+                <p style='float: left; padding: 0px 10px;'>No expire invite<p style='color: red; float: left;'>*</p></p>
+                <input class='input' placeholder="Invite" value='<%= data.invite %>' id='invite'>
+            </div>
+            <br>
+            <br>
+            <div class="inputHolder" >
+                <p style='float: left; padding: 0px 10px;'>Additional owner id's</p>
+                <input class='input' placeholder="Owners" id='owners'>
+            </div>
+            <br>
+            <div class="inputHolder">
+                <p>Tip: More relevent tags to your server, the higher your server it will get on search results.</p>
+                <p>(Press enter/return to submit tag)</p>
+                <div class="tag-container">
+                    <input />  
+                    
+                </div>
+            </div>
+            <br>
+            <div class='inputHolder'>
+                <h3>Webhook Url</h3><p>Should have https:// to work and get votes!</p>
+                <input name="webhook" class="input" type="text" id='webhook' placeholder="i.e https://discordapp.com/api/webhooks/<channel_ID>/<token>"></input>
+            </div>  
+            <br>
+            <div class="inputHolder">
+                <p style='float: left;'>Server emotes:</p>
+                <br>
+                <% for(let i of emoji) { %>
+                    <img src='<%= i %>' height='30px'>
+                <% } %>
+            </div>
+            <br>
+            <button class='button' id='submit' onclick='submit();'>Submit Server</button>
+            <br>
+            <br>
+        </div>
+    </div>  
+    <div class=''> 
+
+    </div>
+
+    <script>
+            var user = "<%= user %>";
+            var tagContainer = document.querySelector('.tag-container');
+            var inputHolder = document.querySelector('.input-holder');
+            var input = document.querySelector('.tag-container input');
+            var tags = [];
+            var usedTags = "<%= data.tags %>";
+            var tagUsed = false;
+    
+            function createTag(label) {
+                const div = document.createElement('div');
+                div.setAttribute('class', 'tag');
+                const span = document.createElement('span');
+                span.innerHTML = label;
+                const closeIcon = document.createElement('i');
+                closeIcon.innerHTML = 'close';
+                closeIcon.setAttribute('class', 'material-icons');
+                closeIcon.setAttribute('data-item', label);
+                div.appendChild(span);
+                div.appendChild(closeIcon);
+                return div;
+            }
+    
+            function clearTags() {
+                document.querySelectorAll('.tag').forEach(tag => {
+                    tag.parentElement.removeChild(tag);
+                });
+            }
+    
+            function addTags() {
+                tagUsed = false;
+                clearTags();
+                tags.slice().reverse().forEach(tag => {
+                    tagContainer.prepend(createTag(tag));
+                });
+            }
+    
+            input.addEventListener('keyup', (key) => {
+                if(key.keyCode == 13){   
+                    let tagUsed = false;
+                    tags.forEach(tag => {
+                        if(tag.toLowerCase().includes(input.value.toLowerCase())){
+                            tagContainer.style.webkitAnimationName = 'shake';
+                            tagContainer.style.webkitAnimationDuration = '0.2s';
+        
+                            setTimeout(() => {
+                                tagContainer.style.webkitAnimationName = '';
+                            }, 200);
+                            tagUsed = true;
+                        } else {
+                            tagUsed = false;
+                        }
+                    })
+
+                    if(tagUsed === false){
+                        tags.push(input.value); 
+                        addTags();
+                        input.value = '';        
+                    }
+                
+                }
+            })
+    
+            document.addEventListener('click', (e) => {
+                if (e.target.tagName === 'I') {
+                    const tagLabel = e.target.getAttribute('data-item');
+                    const index = tags.indexOf(tagLabel);
+                    tags = [...tags.slice(0, index), ...tags.slice(index+1)];
+                    addTags();    
+                }
+            })
+
+
+            if(usedTags){
+                usedTags.forEach(tag => {
+                    tags.push(tag); 
+                    addTags();
+                });
+            }
+    </script>
+</body>
+</html>

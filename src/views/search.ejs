@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta property="og:title" content="Botrix | Search for bots" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://botrix.cc/" />
+        <meta property="og:image" content="https://media.discordapp.net/attachments/747602999035166810/748399137644609676/logo-alt.png" />
+        <meta property="og:description" content="Browse our vast range of bots, you will find the bot right for you, here!" />
+        <meta name="theme-color" content="#FF2142">
+        <meta name="twitter:card" content="summary">
+        <script data-ad-client="ca-pub-9055844767357307" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" 
+    type="image/png" 
+    href="https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botrix</title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <script src="/js/main.js"></script>
+    <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+    <link rel="shortcut icon" href="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script async src="https://arc.io/widget.js#B53NPMmi"></script>
+    <title>Botrix</title>
+    <script src="/js/nav.js"></script>
+</head>
+<body onload='onload()'>
+    <%- include("templates/bar") %>
+    <div style='padding-top: 90px;' class='content'>
+        <div class='centered'>
+            <h1>Search for the perfect bot for your server</h1>
+        </div>
+        <div style='padding-top: 30px;' class='centered'>
+            <input placeholder='Search' id='search' class='staticSearch'>
+        </div>
+        <div class='centered'>
+            <div class='dropdownHolder' style='z-index: 100;'>
+                <div class="filterDropdown"style='float: left; margin-top: 10px;'>
+                    <button class="filterBtn">Filter</button>
+                    <div class="filterDropdown-content">
+                      <a href="/search">High to low votes</a>
+                      <a href="/search?filter=lth">Low to high votes</a>
+                      <a href="/search?filter=atz">A-Z</a>
+                      <a href="/search?filter=zta">Z-A</a>
+                    </div>
+                  </div> 
+            </div>
+        
+        </div>
+        </div>
+
+        <div id='cardholder' class='cardHolder'>
+            <div id='cards'>
+                <% if(bot.length == 0){ %>
+                    <h2 id='searchErr' style='color: white;'>There was no bots found based on your search query</h2>
+                <% } else { %>  
+                    <% for(let i of bot) { %>
+
+                        <div class="card">
+                            <img src='<%= i.bannerURL %>' onerror="this.src = '<%= i.logo %>' " class='bannerHoler'>
+                            <% if(i.certified == "approved"){  %>
+                                <div class='badgeHolderCards' >
+                                    <img height='50' class='badgeCard' alt='Botrix Certified' src='https://cdn.discordapp.com/attachments/748340693881192484/760017137351000134/cert-badge.png'>    
+                                </div>
+                            <% } %>
+                            <div class='iconHolder' style='padding: 20px;'>
+                                <img src="<%= i.logo %>" class="icon">
+                            </div>
+                            <h3 class="title" class=' right: 10px;'>
+                                <%= i.username %>
+                            </h3>
+                            <div class='tagsHodler'>
+                                <a class='topTagsCard'><%= i.votes %> votes</a>
+                            </div>
+                            <p class="desc" style='color: white;'>
+                                <%= i.description %>
+                            </p>
+                            <a class="bot-btns" href="/bots/<%= i.botid %>/">View Bot Info</a>
+                            <a class="bot-btns"style="margin-left: 30px;" href="<%= i.invite %>">Invite</a>
+                        </div>
+                    <% } %>
+                <% } %> 
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        document.addEventListener('load', () => {
+            if(document.getElementById("searchErr")){
+                document.getElementById("searchErr").value = "Sorry but we couldn't find any bots with the search query: "  + urlParams.get('search')
+            }
+        })
+
+        var searchBar = document.getElementById('search');
+        searchBar.addEventListener('keydown', function(event) {
+            if (event.code == 'Enter') {
+                window.location = `/search?search=${searchBar.value}`;
+            }
+        });
+
+    </script>
+            <script>
+                var user = "<%= user %>";
+            </script>
+</body>
+
+</html>

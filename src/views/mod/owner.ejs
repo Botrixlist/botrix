@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botrx - Mod panel</title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <script src="/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+    <title>Botrix</title>
+    <script src="/js/nav.js"></script>
+</head>
+<body>
+    <%- include("../templates/bar") %>
+    <h1 style='padding: 50px 50px;'><%= user.username %>, Welcome to botrix owner dashboard</h1>
+    <h3 style='padding: 0px 50px; color: white;'>There are currently: <%= queue %> bots in queue</h3>
+    <% if(queue !== 0) { %>
+        <div style='padding: 10px 50px;'>
+            <h3  style='padding: 10px 50px; color: white;' >There are some bots in queue.. Go to the moderator panel to verify bots.</h3>
+        </div>
+    <% } else { %>
+        <h3  style='padding: 10px 50px; color: white;' >There are no bots in queue.</h3>
+    <% } %>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <h3 style='padding: 10px 50px; color: white;'>This is the danger zone!</h3>
+    <div style='padding: 10px 50px; '>
+        <button class='button' style='float: left; color: white;'>Enable Maintenance mode</button>
+    </div>
+</body>
+</html>

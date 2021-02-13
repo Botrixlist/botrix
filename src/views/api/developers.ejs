@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta property="og:title" content="Botrix | Discord Bot List" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://botrix.cc/" />
+        <meta property="og:image" content="https://media.discordapp.net/attachments/747602999035166810/748399137644609676/logo-alt.png" />
+        <meta property="og:description" content="The easiest and fastest website to grow your discord bot and community!" />
+        <meta name="theme-color" content="#FF2142">
+        <meta name="twitter:card" content="summary">
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="shortcut icon" href="">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <title>Botrix</title>
+   <script src="/js/main.js"></script>
+</head>
+<body>
+    <div class='header'>
+        <div class='headerRes'>
+            <a><img class='logo' href='https://botrix.cc/' src='https://cdn.discordapp.com/attachments/747602999035166810/748399137644609676/logo-alt.png' width='50px' height='50px'; alt='Botrix'></a>
+            <nav>
+                <ul id='nav' class='nav_links'>
+                    <li id='aLink1'><a href='/'>Home</a></li>
+                    <li id='aLink2'><a href='/add'>Add Bot</a></li>
+                    <li id='aLink3'><a href='/search'>Search</a></li>
+                    <% if(user) { %>
+                            <div class="dropdown" id='dropdownnav'>
+                                <button class="dropbtn" ><li><a href='/me'>Welcome, <%= user.username %></a></li></button>
+                                <div class="dropdown-content" id='dropdownContent'>
+                                    <a href="/theme">Change Theme</a>
+                                    <a href="/add">Add bot</a>
+                                    <a href="/logout">Logout</a>
+                                </div> 
+                            </div>                            
+                    <% } else { %>
+                        <div class="dropdown" id='dropdownnav'>
+                            <button class="dropbtn" ><li><a href='/login'>Login</a></li></button>
+                            <div class="dropdown-content">
+                                <a href="">Change Theme</a>
+                            </div> 
+                        </div>         
+                    <% } %>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class='centered' style='padding-top: 100px;'>
+ 
+        <h1>Botrix API</h1>
+        <p>We're sorry, but at this time only bot owners can </p>
+    <script>var user = <%= user %> 
+    </script>
+</body>
+</html>

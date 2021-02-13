@@ -1,0 +1,60 @@
+<div class='header'>
+    <div class='headerRes'>
+        <a href='https://botrix.cc/'><img class='logo' src='https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png' width='50px' height='50px'; alt='Botrix'></a>
+        <nav>
+            <ul id='nav' class='nav_links'>
+                <li id='aLink1'><a href='/'>Home</a></li>
+                <li id='aLink2' class='aNavLinkDropdown'>
+                    <a href='/search'>Search ▼</a>
+                    <div class='aNavLinkDropdownContent'>
+                        <ul>
+                            <li><a href='/search'>Search Bots</a></li>
+                            <li><a href='/servers/search'>Search Servers</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li id='aLink3' class='aNavLinkDropdown' >
+                    <a href='/search'>Other ▼</a>
+                    <div class='aNavLinkDropdownContent'>
+                        <ul>
+                            <li><a href='/tos'>TOS</a></li>
+                            <li><a href='/Privacy'>Privacy Policy</a></li>
+                            <li><a href='/join'>Join</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li id='aLink4' class='aNavLinkDropdown'>                            
+                    
+                    <a href='/search'>Add ▼</a>
+                    <div class='aNavLinkDropdownContent'>
+                        <ul>
+                            <li><a href='/add'>Add Bot</a></li>
+                            <li><a href='/servers/add'>Add server</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li id='aLink4'>                            
+                    <a href='/bots'>Bots</a>
+                </li>
+                <% if(user) { %>
+                        <div class="dropdown" id='dropdownnav'>
+                            <button class="dropbtn" ><li><a href='/me'>Welcome, <%= user.username %></a></li></button>
+                            <div class="dropdown-content" id='dropdownContent'>
+                                <a onclick='changeTheme()'>Change Theme</a>
+                                <a href="/add">Add Bot</a>
+                                <a href="/logout">Logout</a>
+                            </div> 
+                        </div>                            
+                <% } else { %>
+                    <div class="dropdown" id='dropdownnav'>
+                        <button class="dropbtn" ><li><a href='/login'>Login</a></li></button>
+                        <div class="dropdown-content">
+                            <a onclick='changeTheme()'>Change Theme</a>
+                        </div> 
+                    </div>         
+                <% } %>
+            </ul>
+        </nav>
+    </div>
+</div>
