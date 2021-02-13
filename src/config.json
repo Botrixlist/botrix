@@ -1,0 +1,48 @@
+{
+  "id": "Bot ID",
+  "clientSecret": "Bot Discord Secret",
+  "domain": "Domain",
+  "MongoDbServer": "MongoDB Server",
+  "Token": "Bot Token #1",
+  "ServerToken": "Bot Token #2",
+  "port": "80", 
+  "AppId": "Client ID",
+  "OWNER_USERS": [ 
+    00000000000, 
+    00000000000,
+    00000000000
+  ],
+  
+ 
+  "ADMIN_USERS": [
+    00000000000, 
+    00000000000,
+    00000000000
+  ],
+  
+  
+  "COMMANDS_ROLE": [
+    00000000000, 
+    00000000000,
+    00000000000
+  ],
+  
+ 
+  "UNVERIFIED_ROLE": "Unverified Bots Role ID",
+  "VERIFIED_ROLE": "Unverified Bots Role ID",
+  "GUILD_ID": "Support Server Guild ID",
+  "BOT_DEVELOPER_ROLE_ID": "Support Server Bot Dev Role ID",
+  "BOT_DEVELOPER_ROLE_ID_VERIFIED": "Bot Dev VERIFIED Role ID",
+  "MOD_LOG": "Mod Log Channel ID",
+  "VOTE_LOG": "Vote Logs Channel ID",
+  "greeting_chan": " Hello Channel ID",
+  "leave_chan": "Goodbye Channel ID",
+  "logging_chan": "Logging Channel ID",
+  "prefix": "*",
+  "embed_color": "", 
+  "embed_guildname": "",
+  "CERT_LOGS": "Logging Channel ID",
+  "PAYPAL_CLIENT_ID":"", 
+  "PAYPAL_CLIENT_SECRET": "",
+  "maintenince": false 
+}
