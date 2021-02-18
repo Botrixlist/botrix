@@ -87,7 +87,7 @@ route.get('/:id', async (req, res, next) => {
             if(webhookClient){
                 webhookClient.send({
                     username: 'Botrix',
-                    avatarURL: 'https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png',
+                    avatarURL: 'https://cdn.discordapp.com/attachments/748427107968745512/810018388126597120/botrix_swirl.png',
                     embeds: [e3],
                 }).catch(() => {});
             }
