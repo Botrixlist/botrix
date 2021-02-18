@@ -11,6 +11,6 @@ async function submit(){
 
 var onloadCallback = function() {
     grecaptcha.render('html_element', {
-      'sitekey' : '6LfCmcQZAAAAAE0WHXmb9nqMgMQmUwmBmbV76BuU'
+      'sitekey' : 'your sitkey here'
     });
 };
