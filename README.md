@@ -11,10 +11,10 @@ An opensource Discord bot list developed by Windows, Awish, Mei-chan, Toxic-dev,
         <a href="https://botrix.cc/join">
       <img src="https://img.shields.io/badge/Maintained%20by:-The Botrix Team%20%E2%86%92-gray.svg?colorA=655BE1&colorB=4F44D6&style=for-the-badge"/>
     </a>
-          <a href="https://tritanbot.xyz/">
+          <a href="https://botrix.cc/">
       <img src="https://img.shields.io/badge/Library:-Discord.js & ExpressJS%20%E2%86%92-gray.svg?colorA=655BE1&colorB=4F44D6&style=for-the-badge"/>
     </a>
-            <a href="https://tritanbot.xyz/support">
+            <a href="https://botrix.cc/">
       <img src="https://img.shields.io/badge/Support:-Discord Server%20%E2%86%92-gray.svg?colorA=655BE1&colorB=4F44D6&style=for-the-badge"/>
     </a>
     </p>
