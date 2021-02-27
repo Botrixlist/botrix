@@ -1,0 +1,7 @@
+node_modules
+src/bot/events/guildMemberAdd.js
+src/config.json
+src/config.json
+src/views/bot.ejs
+src/config.json
+src/config.json
