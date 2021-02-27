@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botrix - Mod Panel</title>
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Botrix</title>
+   
+   <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default no-margin">
+      
+      <div class="navbar-header fixed-brand">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" id="menu-toggle">
+          <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+        </button>
+        <a class="navbar-brand" href="#">Botrix Admin Beta</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"> <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button>
+          </li>
+        </ul>
+      </div>
+      <!-- navbar-header-->
+  
+  
+      <!-- bs-example-navbar-collapse-1 -->
+    </nav>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+  
+          <li class="active">
+            <a href="/restricted/mod?page=#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cube fa-stack-1x "></i></span> Dashboard</a>
+            <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+              <li><a href="/restricted/mod?page=queue">Queue</a></li>
+              <li><a href="/restricted/mod?page=transactions">Transactions</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/bots/<%= bot[0].botid ? bot[0].botid  : "/restricted/mod?page=queue"%>"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-check fa-stack-1x "></i></span>Quick Start Verification</a>
+          </li>
+          <li>
+            <a href="/restricted/mod?page=certification"><span class="fa-stack fa-lg pull-left"><i class="fa fa-check-circle fa-stack-1x "></i></span>Certification</a>
+          </li>
+          <li>
+            <a href="/restricted/mod?page=log"><span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span>Audit Log</a>
+          </li>
+          <li>
+            <a href="/restricted/mod?page=vars"><span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>Change Website Vars</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /#sidebar-wrapper -->
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div id='mainContent' style='display: none;'>
+                <div class="row">
+                    <div class="col-lg-12">
+                    <h1>Botrix Admin</h1>
+                    <p>Manage and Moderate the entire botrix website. This web panel is under development and some features may not work.</p>
+                </div>
+            </div>
+        </div>
+        <div id='404' style='display: none;'>
+            <div class="alert alert-danger" id='errorblock' style='display: none;' role="alert">
+                   
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                <h1>You seem like you are lost :(</h1>
+                <p>You somehow got here.. idk how you did prolly playing around with url params or something have fun uwu.</p>
+                </div>
+            </div>
+        </div>
+        <div id='queue' style='display: none;'>
+            <div class="row">
+                <div class="col-lg-12">
+                <h1>Botrix Unapproved bot queue</h1>
+                <div class="alert alert-danger" id='errorblock' style='display: none;' role="alert">
+                   
+                </div>
+                </div>
+                <table class="table">
+                    <thead class="black white-text">
+                      <tr>
+                        <th scope="col">Position</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Owner ID</th>
+                        <th scope="col">Link</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% let e = 0; %>
+                    <% for(i of bot){ %>
+
+                      <tr class="grey lighten-2">
+                        <th scope="row"><%= e + 1%></th>
+                        <td><img src='<%= i.logo %>' height="30px" style='border-radius: 50px;'> <%= i.username %></td>
+                        <td><%= i.owners %></td>
+                        <td><a href='/bots/<%= i.botid %>'>View Bot</a></td>
+                      </tr>
+                      <% e++; %>
+                    <% }%>
+                    </tbody>
+                  </table>
+                  
+            </div>
+            
+        </div>
+
+        <div id='transactions' style='display: none;'>
+            <div class="row">
+                <div class="col-lg-12">
+                <h1>Botrix Global BTX transactions</h1>
+            </div>
+            <div class="alert alert-danger" id='errorblock' style='display: none;' role="alert">
+                   
+            </div>
+            <table class="table">
+                <thead class="black white-text">
+                  <tr>
+                    <th scope="col">Transaction ID</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Owner ID</th>
+                    <th scope="col">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    
+                <% for(i of transactions){ %>
+
+                  <tr class="grey lighten-2">
+                    <th scope="row"><%= i.transactionId %></th>
+                    <td><%= i.transationDate %></td>
+                    <td><%= i.userid %></td>
+                    <td><a> <%= i.transactionAmount %></a></td>
+                  </tr>
+            
+                <% }%>
+                </tbody>
+              </table>
+                </div>
+            </div>
+        </div>
+
+        <div id='certification' style='display: none;'>
+            <div class="row">
+                <div class="col-lg-12">
+                <h1>Latest Bot in Certification Queue:</h1>
+                <% if(cert.length == 0){ %>
+                    <div class="alert alert-warning" role="alert">
+                    No bots in queue!
+                    </div>
+                <% } %>
+
+                <div class="alert alert-danger" id='errorblock' style='display: none;' role="alert">
+                   
+                </div>
+                
+                <div class="alert alert-success" id='sucsessblock' style='display: none;' role="alert">
+                   
+                </div>
+
+                </div>
+                <!-- <% let o = 0; %>
+                <% for(i of cert){ %>
+
+                  <tr class="grey lighten-2">
+                    <th scope="row"><%= o + 1%></th>
+                    <td><img src='<%= i.logo %>' height="30px" style='border-radius: 50px;'> <%= i.username %></td>
+                    <td><%= i.owners %></td>
+                    <td><a href='/bots/<%= i.botid %>'>View Bot</a></td>
+                  </tr>
+                  <% o++; %>
+                <% }%> -->
+                  
+            </div>
+            <br>
+            <br>
+           
+            <div class='row'>
+                <% for(i of cert){ %>
+                
+                    <div class='col-lg-2 center-block'>
+                        <img src='<%= i.logo %>' height="100%" style='border-radius: 50px;'> 
+                    </div>
+                    <div class='col-lg-2 center-block'>
+                        <h1><%= i.username %></h1>
+                        <p><%= i.short %></p>
+                        <p><%= i.votes %> votes</p>
+                    </div>
+                <% } %>
+            </div>
+            <div class='row'>
+
+                <% for(i of cert){ %>
+                
+                    <div class='col-lg-2 center-block'>
+                        <a href='/api/v1/certify/<%= i.botid %>' type="button" style='width: 100%;'class="btn btn-success">Approve</a>
+                    </div>
+                    <div class='col-lg-2 center-block'>
+                        <a type="button" href='/api/v1/certify/deny/<%= i.botid %>' style='width: 100%;'class="btn btn-danger">Deny</a>
+                    </div>
+                <% } %>
+            </div>
+            
+        </div>
+      </div>
+      <!-- /#page-content-wrapper -->
+    </div>
+    
+    <script>
+       
+        const urlParams = new URLSearchParams(window.location.search);
+        const page = urlParams.get('page');
+        const error = urlParams.get('error');
+        const done = urlParams.get('done');
+        console.log(page);
+
+        document.addEventListener("DOMContentLoaded", function () {
+            if(page === ""){
+                document.getElementById('mainContent').style.display = "block";
+                return;
+
+            } else{
+
+                if(!document.getElementById(page)){
+                    document.getElementById('404').style.display = "block";
+                    return;
+                } else {
+                    document.getElementById(page).style.display = "block";
+                }
+            }
+
+            if(error){
+                document.getElementById('errorblock').style.display = "block";
+                document.getElementById('errorblock').innerText = error;
+            }
+
+            if(done){
+                document.getElementById('sucsessblock').style.display = "block";
+                document.getElementById('sucsessblock').innerText = done;
+            }
+        }); 
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta property="og:title" content="Vote for <%= server.name %> on Botrix" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://botrix.cc/" />
+        <meta property="og:image" content="<%= server.serverIco %>" />
+        <meta property="og:description" content="This server has <%= server.votes %> votes." />
+        <meta name="theme-color" content="#00FF00">
+        <meta name="twitter:card" content="summary">
+        
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botrix</title>
+    <link rel="icon" 
+    type="image/png" 
+    href="https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png" />
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="shortcut icon" href="">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/servers/vote.js"></script>
+    <script src="/js/main.js"></script>
+</head>
+<body>
+    <%- include("templates/bar") %>
+    <div class='centered'>
+        <div class='inner'>
+            <img src='<%= server.serverIco %>' style='border-radius: 50%;'>
+            <h1 style=" margin: 40px;">You are voting for <%= server.name %></h1>
+            <br>
+            <h3 style='color: white;'>This server has <%= server.votes %> votes.</h3>
+            <br>
+            <p>You can only vote 1 time a day!</p>
+            <br>
+            <div class="g-recaptcha" style="display: inline-block;" id="rcaptcha" data-sitekey="6LfCmcQZAAAAAE0WHXmb9nqMgMQmUwmBmbV76BuU"></div>
+            <br><br>
+            <a onclick="submit()" Serverid='<%= server.guildID %>' class='button' id='submit'>Vote</a>
+          </div>
+      </div>
+</body>
+</html>

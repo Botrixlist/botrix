@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="shortcut icon" href="">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+   <title>Botrix</title>
+   <script src="/js/main.js"></script>
+</head>
+<body id='owo'>
+    <%- include("../templates/bar") %>
+    <div style='padding: 50px 50px;'>
+        <h1 style='font-size: 200px;'>404</h1>
+        <h1>Uh oh.. You came to the wrong part of town fool<br>'tis a dingey place out here..</h1>
+        <br>
+        <p>I Suggest you go back home</p>
+        <br>
+        <a style='float: left' href='/'class='button'>Home</a>
+    </div>
+
+    <script src="/js/vanta/three.r119.min.js"></script>
+<script src="/js/vanta/vanta.globe.min.js"></script>
+    <script>
+VANTA.GLOBE({
+  el: "#owo",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  size: 1.40
+})
+    </script>
+</body>
+</html>

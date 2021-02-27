@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botrix</title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+    <script src='/js/bots/mod/decline.js'></script>
+</head>
+<body>
+    <%- include("../templates/bar") %>
+
+    <div class='container' style='background-color: #23272A; color: white !important; border-radius: 20px; width: 100%;'>
+        <h1 style='padding-top: 30px;'>Please select a reason to decline <%= bot.username %></h1>
+        <p>You are declining <%= bot.username %></p>
+        <br>
+        <hr>
+        <br>
+        <p id='err' style='display: none; color: red !important;'>Error! You must select an option!</p>
+        <br>
+        <input type="checkbox" id="offline" name="offile" value="Bot was offline while testing">
+        <label for="offline">Bot was offline while testing</label><br>
+        <br>
+        <input type="checkbox" id="clone" name="clone" value="Your bot is a clone of another bot">
+        <label for="clone">Your bot is a clone of another bot</label><br>
+        <br>
+        <input type="checkbox" id="responds" name="responds" value="Your bot responds to other bots">
+        <label for="responds">Your bot responds to other bots</label><br>
+        <br>
+        <input type="checkbox" id="noCommands" name="noCommands" value="Your bot doesn't have any/enough working commands. (Minimum: 7)">
+        <label for="noCommands">Your bot doesn't have any/enough working commands. (Minimum: 7)</label><br>
+        <br>
+        <input type="checkbox" id="nsfw" name="nsfw" value="Your bot has NSFW commands that work in non-NSFW marked channels">
+        <label for="nsfw">Your bot has NSFW commands that work in non-NSFW marked channels</label><br>
+        <br>
+        <input type="checkbox" id="help" name="help" value="Your bot doesn't have a working help command or commands list">
+        <label for="help">Your bot doesn't have a working help command or commands list</label><br>
+        <br>
+        <div class="inputHolder">
+            <textarea class='input' id='other' style='height: 200px' placeholder="Other reason" id='id'></textarea>
+        </div>
+        <br>
+        <a class='button' onclick='submit()'>Decline</a>
+        <br>
+    </div>
+</body>
+</html>

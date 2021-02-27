@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta property="og:title" content="<%= user.username %><%= user.discriminator %> on Botrix" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://botrix.cc/" />
+        <meta property="og:image" content="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>" />
+        <meta name="theme-color" content="#FF2142">
+        <meta name="twitter:card" content="summary">
+        
+        <link rel="icon" 
+        type="image/png" 
+        href="https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/index.css">
+     <link rel="shortcut icon" href="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+    <script async src="https://arc.io/widget.js#B53NPMmi"></script>
+    <title>Botrix</title>
+    <script src="/js/main.js"></script>
+</head>
+<body onload='onload()'>
+    <%- include("templates/bar") %>
+    <div class='userContainer'>
+        <div class='profilePictureHolder'>
+            <div class='row'>
+                <img src='https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %>' style='border-radius: 50%; float: left; padding: 35px 10px;' >  
+                <h1 style='float: left; padding: 40px 10px;'><%= user.username %><small>#<%= user.discriminator %> </h1>  
+            </div>
+
+            <div class='belowUser'>
+                <div class='item1'>
+                        <h3 style='padding: 5px; background-color: #1a1a1a;  border-radius: 10px;'>Bots: </h3>
+                </div>
+                <div class='item2'>
+                    <h3 style='padding: 5px;  background-color: #1a1a1a; border-radius: 10px;'>Bio: <%= schema.bio %></h3>
+                </div>
+                <% if(verified){ %>
+
+                    <div class='item3'>
+                        <div class='badgeProfile'>
+                            <img height='40' class='' alt='Botrix Certified' src='https://i.imgur.com/YE2G7fU.png'>    
+                        </div>
+                    </div>
+
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <div style='padding-top: 50px;' class='content'>
+        <div class='centered'>
+            <a class='button' href='/add/'>Add bot</a>
+        </div>
+        <br>
+        <div class="centered">
+        </div>
+        <div class='centered'>
+            <div id='cards'>
+                <% for(let i of cards) { %>
+
+                    <div class="card" >
+                        <img src='<%= i.bannerURL %>' onerror="this.src = '<%= i.logo %>' " class='bannerHoler'>
+                        <% if(i.certified == "approved"){  %>
+                            <div class='badgeHolderCards' >
+                                <img height='50' class='badgeCard' alt='Botrix Certified' src='https://cdn.discordapp.com/attachments/748340693881192484/760017137351000134/cert-badge.png'>    
+                            </div>
+                        <% } %>
+                        <div class='iconHolder' style='padding: 20px;'>
+                            <img src="<%= i.logo %>" class="icon">
+                        </div>
+                        <h3 class="title" class=' right: 10px;'>
+                            <%= i.username %>
+                        </h3>
+                        <div class='tagsHodler'>
+                            <a class='topTagsCard'><%= i.votes %> votes</a>
+                        </div>
+                        <p class="desc" style='color: white;'>
+                            <%= i.description %>
+                        </p>
+                        <a class="bot-btns" href="/bots/<%= i.botid %>/">View Bot Info</a>
+                        <a class="bot-btns" style="margin-left: 10px;" href="<%= i.status == "declined" ? "/api/submit" : i.invite %>"><%= i.status == "declined" ? "Resubmit" : "Invite" %></a>
+                        <a class="bot-btns" style="margin-left: 10px;"  href="/api/bots/delete/<%= i.botid %>/">Delete Bot</a>
+                        <a class="bot-btns" style="margin-left: 10px;" href="/edit/<%= i.botid %>/">Edit Bot</a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <br> <br>
+        <div class='centered'>
+            <a class='button' href='/servers/add'>Add Server</a>
+        </div>
+        <br>
+        <div class='centered'>
+            <div id='cards'>
+                <% for(let i of servers) { %>
+
+
+                    <div class="card" >
+                        <img src='<%= i.bannerURL %>' onerror="this.src = '<%= i.logo %>' " class='bannerHoler'>
+                        <% if(i.certified == "approved"){  %>
+                            <div class='badgeHolderCards' >
+                                <img height='50' class='badgeCard' alt='Botrix Certified' src='https://cdn.discordapp.com/attachments/748340693881192484/760017137351000134/cert-badge.png'>    
+                            </div>
+                        <% } %>
+                        <div class='iconHolder' style='padding: 20px;'>
+                            <img src="<%= i.serverIco %>" class="icon">
+                        </div>
+                        <h3 class="title" class=' right: 10px;'>
+                            <%= i.name %>
+                        </h3>
+                        <div class='tagsHodler'>
+                            <a class='topTagsCard'><%= i.votes %> votes</a>
+                        </div>
+                        <p class="desc" style='color: white;'>
+                            <%= i.short %>
+                        </p>
+                        <a class="bot-btns" href="/servers/server/<%= i.guildID %>/">View Info</a>
+                        <a class="bot-btns" style="margin-left: 10px;" href="/servers/edit/<%= i.guildID %>/">Edit Server</a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div> 
+
+
+
+                
+    <script>
+        function deleteConfirm(id){
+            var clicked =prompt(`Please type CONFIRM to delete this bot.`)
+            if(clicked.toLowerCase() == 'confirm'){
+                let data = {
+                    reason: "Deleted by user"
+                }
+
+                let url = `/api/delete/${id}`
+                console.log('submited');
+                fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers:{
+                    'Content-Type': 'application/json'
+                    }
+                }).then(res => res.json())
+                .then(response => {
+                    location.href = response.redirect
+                })
+            }
+        }
+
+        function deleteConfirmServer(id){
+            var clicked =prompt(`Please type CONFIRM to delete this server.`)
+            if(clicked.toLowerCase() == 'confirm'){
+                let data = {
+                    reason: "Deleted by user"
+                }
+
+                let url = `/api/servers/delete/${id}`
+                console.log('submited');
+                fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers:{
+                    'Content-Type': 'application/json'
+                    }
+                }).then(res => res.json())
+                .then(response => {
+                    location.href = response.redirect
+                })
+            }
+        }
+    </script>
+            <script>
+                var user = "<%= user %>";
+            </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+        <meta charset="UTF-8">
+        <meta property="og:type" content="website" />
+        <meta name="theme-color" content="#FCA311">
+        <meta property="og:site_name" content="Proudly made with ❤️️ by botrix!">
+        <meta property="og:url" content="http://botrix.cc/" />
+        <meta property="og:title" content="<%= server.name %>" />
+        <meta property="og:image" content="<%= server.serverIco %>" />
+        <meta name="twitter:card" content="summary">
+        <meta property="og:description" content="<%= server.short %>
+                    
+        ◉: <%= guild ? guild.memberCount : "Unknown" %> members | ↑: <%= server.votes %> votes | 😂: <%= emotes ? emotes.length : "Unknown" %> emojis">
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botrix</title>
+    <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <script src="/js/servers/main.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Markazi+Text" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Botrix</title>
+    <link rel="shortcut icon" href="">
+    <link rel="icon" 
+    type="image/png" 
+    href="https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png" />
+    <script src="/js/nav.js"></script>
+</head>
+<body onload='onload()'>
+    <%- include("templates/bar") %>
+    <div class='content' style='width: 100%; margin: 0 auto;'>
+        <div style='width: 50%; margin: 0 auto;'>
+            <div style='padding-top: 70px; color: white;'>
+                <img id="server-icon" width="200px" height="200px" src="<%= server.serverIco %>">
+                <div style='padding-top: 10px;'></div>
+                <div style='background-color: rebeccapurple; max-width: 200px; text-align: center; border-radius: 30px;'><p>Members <%= guild ? guild.memberCount : "Unknown" %></p></div>
+                <div style='padding-top: 10px;'></div>
+                <div style='background-color: rebeccapurple; max-width: 200px; text-align: center; border-radius: 30px;'><p>Emotes <%= emotes ? emotes.length : "Unknown" %></p></div>
+                <div style='padding-top: 10px;'></div>
+                <div style='background-color: rebeccapurple; max-width: 200px; text-align: center; border-radius: 30px;'><p>Votes <%= server.votes %></p></div>
+                <div class='wave' id='wave'></div>
+                <div class='wave2' id='wave2'></div>
+            </div>
+            <h1 class="rightserverServer"   id='serverName'>
+                <%= server.name %>  <% if(server.certified == "approved"){  %> <img height='50' class='badgeCard' alt='Botrix Certified' src='https://cdn.discordapp.com/attachments/748340693881192484/760017137351000134/cert-badge.png'>    <% } %>
+            </h1>
+            <div class="rightserverServer" style="padding-top: 20px;" >
+                <%= server.short %>    
+            </div>
+            <div class="rightserverServer" style="padding-top: 20px; max-width: 500px;" >
+                <p> Emojis </p>
+                <% if(emotes){ %>
+                    <% for(i of emotes){ %>
+                        <img src='<%= i %>' style='height: 30px;'>
+                    <% } %>
+                <% } %>
+            </div>
+            <div class="rightServerButtons_" style="margin-top: 20px;display: flex;flex-flow: wrap;margin-bottom: 60px; ">
+                <a class="button buttonScale" style='width: 45%;' target="_blank" href="/servers/vote/<%= server.guildID %>"> <i class="fa fa-fw fa-server" aria-hidden="true"></i>Vote</a>
+                <a class="button buttonScale" style='width: 45%;' target="_blank" href="<%= server.invite %>"> <i class="fa fa-fw fa-server" aria-hidden="true"></i>Join</a>
+            </div>
+            <% if(isAdmin) { %>
+                <div class="rightServerButtons_" style="margin-top: 20px;display: flex;flex-flow: wrap;margin-bottom: 60px;">
+                    <a class="button buttonScale" style='width: 45%;' target="_blank" href="/api/servers/delete/<%= server.guildID %>"> <i class="fa fa-fw fa-server" aria-hidden="true"></i>Delete</a>
+                </div>
+            <% } %>
+            <div id="long" class='markdownInputFeild'>
+                <div markdown="1" class='markdown' style='color: white !important; padding-left: 30px; max-width: 95%; background-color: black; min-height: 50%; border-radius: 30px; padding: 30px 30px;'> <%- server.long %> </div>
+            </div>
+        </div>
+
+    </div>
+    
+        <script>
+            let user = "<%= user %>";
+        </script>
+    </div>
+</body>
+</html>

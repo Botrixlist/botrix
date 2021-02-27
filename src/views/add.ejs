@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botrix</title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <script src="/js/nav.js"></script>
+    <link rel="shortcut icon" href="">
+    <script src="/js/bots/user/min/submit.min.js"></script>
+    <link rel="icon" 
+    type="image/png" 
+    href="https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png" />
+    <script src="/js/main.js"></script>
+</head>
+<body onload='onload()'>
+    <%- include("templates/bar") %>
+
+        <div class='container'>
+            <svg xmlns="http://www.w3.org/2000/svg" class='submitWaves' viewBox="0 0 1440 320">
+
+                <path fill="#5000ca" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,144C384,107,480,53,576,48C672,43,768,85,864,138.7C960,192,1056,256,1152,245.3C1248,235,1344,149,1392,106.7L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+            </svg>
+            <h1 style='padding-top: 80px;'>Submit a Bot!</h1>
+            <p>To submit your bot for approval, please make sure to fill out all the fields.</p>
+            <p>Please also make sure to read our requirements/decline reasons before submission.</p>
+            <!--<h1>NOTES :-</h1>
+            <h4 style="padding: 20px; text-align: left;">
+                <br>
+                <p>1. All the containers marked with a ' <a style="color:#FF0000";>*</a> ' on them, are required fields.</p>
+                <p>2. You have to add the Bot tags manually!</p>
+                <p>3. You have to join our [ <a href="https://discord.gg/sQSMsB" target="_blank" style="color:blue";>Server</a> ], in-order to check your Bot's progression and know about it's bugs.</p>
+                <p>4. If your page or your markdown contains any <a style="color:#FF0000";>NSFW</a> content, It can be denied by our staff.</p>
+                <p>5. Do not submit Bots that have <a style="color:#FF0000";>no commands</a>, or <a style="color:#FF0000";>very few commands</a>. A Bot should at least contain <a style="color:#FF0000";>7+</a> commands to get <a style="color:green";>verified</a>.</p>
+                <p>6. Do not <a style="color:#FF0000";>copy</a> and <a style="color:#FF0000";>paste</a> any other Bots Markdown, this can result in the <a style="color:#FF0000";>denial</a> of your Bot.</p>
+                <p>7. Try to keep the Description <a style="color:lightgreen";>simple</a> and <a style="color:lightgreen";>readable</a>, so that our staffs can easily verify your Bot.</p>
+                <p>8. Bots made using <a style="color:#FF0000";>'BotGhost'</a> or <a style="color:#FF0000";>any other software</a>, without any modifications, will be <a style="color:#FF0000";>denied</a>.</p>
+                <p>9. <a style="color:#FF0000";>Denial</a> of your Bot can contain various reasons. But, You can always resubmit again. Remember not to put any <a style="color:#FF0000";>Hate, abuse, or slurs</a> in the Description.</p>
+                <p>10. You will be informed whenever your Bot gets <a style="color:lightgreen";>Verified</a> ,or <a style="color:#FF0000";>Denied</a>.</p>
+            </h4>-->
+            <br>
+            <br>
+            <br>
+            <div class="inputHolder" onload='onLoading()'>
+                <p style='float: left; padding: 0px 10px;'>Client ID<p style='color: red; float: left;'>*</p></p>
+                <input class='input' placeholder="Client ID" id='id'>
+                <p id='err1' style='color: red; float: left; display: none;'>This field is required</p>
+            </div>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Prefix<p style='color: red; float: left;'>*</p></p>
+                <input class='input' placeholder="What is your default prefix?" id='prefix'>
+                <p id='err2' style='color: red; float: left; display: none;'>This field is required</p>
+            </div>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Short Description - 120 char max<p style='color: red; float: left;'>*</p></p>
+                <input class='input' placeholder="What does your bot do?" id='short'>
+                <p id='err3' style='color: red; float: left; display: none;'>This field is required</p>
+            </div>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Support Server<p style='color: red; float: left;'>*</p></p>
+                <input class='input' placeholder="Please link your discord support server's invite link." id='support'>
+                <p id='err4' style='color: red; float: left; display: none;'>This field is required</p>
+            </div>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Website</p>
+                <input class='input' placeholder="Do you have a website or dashboard?" id='web'>
+            </div>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Invite Link<p style='color: red; float: left;'>*</p></p>
+                <input class='input' placeholder="What is your bot's invite link?" id='invite'>
+                <p id='err5' style='color: red; float: left; display: none;'>This field is required</p>
+            </div>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Bot Library</p>
+                <input class='input' placeholder="Discord.js, Discord.py, Erris..?" id='library'>
+            </div>
+            <br>
+            <div class='inputHolder'>
+                <p style='float: left; padding: 0px 10px;'>Webhook URL (Requires https://)</p>
+                <input name="webhook" class="input" type="text" id='webhook' placeholder="Ex. https://discordapp.com/api/webhooks/<channel_ID>/<token>"></input>
+            </div>  
+            <br>
+            <p style='color: red;'>Your bot's description supports <a href='https://www.markdownguide.org/getting-started/' style='color: red; text-decoration-line: underline;'>markdown,</a> <bold>Not HTML.</bold></p>
+            <br>
+            <div class="inputHolder">
+                <p style='float: left; padding: 0px 10px;'>Markdown Description<p style='color: red; float: left;'>*</p></p>
+                <textarea class='input' id='long' style="width: 100%; height: 100px" placeholder="This is it, time to showcase your bot's best features!"></textarea>
+                <p id='err6' style='color: red; float: left; display: none;'>This field is required</p>
+            </div>
+            <br>
+           
+            <div class="inputHolder">
+                <p>Tags (Max 5, press enter/return to add tag)</p>
+                <div class="tag-container">
+                    <input placeholder="Tags"/>  
+                    
+                </div>
+            </div>
+            <br>
+            <h2 style="color: white;">Personalization</h2>
+            <p>Banner Image</p>
+            <br>
+            <input type='file' class='button' name='filename' id='banner'>
+            <br>
+            <img src='' id='bannerImage' height="200px">
+            <br>
+            <br>
+            <button id='submit' onclick='submit()'class='button'>Submit</button> 
+
+        </div>
+
+        <div class='addContainerRight'>
+            <h1>Preview Site</h1>
+            <div class='content contentSpecialHover' >
+                <div class='paddingBanner'>
+                    <img id='bannerForDemo' src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp4462550.png&f=1&nofb=1' class='botBannerHolder'>
+                </div>
+                <div class='bot-main-content' id='mainContent'>
+                    <div stye='max-width: 250px;'>
+                        <img id="bot-icon" style='border: 3px solid limegreen;' src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdiscordapp.com%2Fassets%2Fdd4dbc0016779df1378e7812eabaa04d.png&f=1&nofb=1">
+                        <div style='background-color: #1a1a1a; width: 200px; height: 30px;border-radius: 10px;' class='prefix'><p style='padding: 3px 10px;'>Prefix: <span style='color: #FF006B;' id='prefixDemo'></span></p></div>        
+                    </div>
+                    <div>
+                        <h1 class="rightServer" id='serverName'>
+                            A super cool bot
+                        </h1>
+                        <div class="rightServer" style="padding-top: 20px;">
+                            <span  id='shortDemo'>With a super cool Description</span>
+
+                              <br>
+                            <div class='server-minimal-tags-holder'>
+                                <div class='server-minimal-tags'><span>Library</span><p id='librarydemo' class='padding-p'></p></div>
+                                <div class='server-minimal-tags'><span>Votes</span><p id='votes' class='padding-p'>0</p></div>
+                            </div>
+
+                        </div>
+
+                        <div class="rightServerButtons" style="">
+                            <a class="minimalButton" style='width: 45%;' target="_blank"> <i class="fa fa-fw fa-server" aria-hidden="true"></i>Invite <br> <span class="material-icons">library_add_check</span></a>
+                            <a class="minimalButton" style='width: 45%;' target="_blank" > <i class="fa fa-fw fa-server" aria-hidden="true"></i>Vote <br> <span class="material-icons">done</span></a>
+                            <a class="minimalButton" style='width: 45%;' target="_blank" > <i class="fa fa-fw fa-server" aria-hidden="true"></i>Server <br> <span><img src='https://windows.is-big.gay/rhhFiWMtw' height="30px"></span></a>
+                            <a class="minimalButton" style='width: 45%;' target="_blank"> <i class="fa fa-fw fa-server" aria-hidden="true"></i>Website <br> <span><img src='https://windows.is-big.gay/FIvt2oE6m' height="30px"></span></a>
+                            <a class="minimalButton" style='width: 45%;' target="_blank"  > <i class="fa fa-fw fa-server" aria-hidden="true"></i>Award <br> <span><img src='https://windows.is-big.gay/ONed1Baga' height="30px"></span></a>
+                        </div>
+
+                    </div>
+        
+                    <div style='padding-top: 30px; '>
+                        <div class='userBotHolder'>
+                            <a  style="position: relative; float: center;">
+                                <div style='padding-left: 15px; padding-top: 5px; text-align: center;'>
+                                    <img style='border-radius: 50%' height='30px'src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdiscordapp.com%2Fassets%2Fdd4dbc0016779df1378e7812eabaa04d.png&f=1&nofb=1"> 
+                                    <span style='position: relative; top: -10px; padding: 20px 10px'><%= user.username %></span></a>
+                        </div>
+         
+                    </div>
+                    <br>
+                    <br>
+                    <div id='desc' markdown='1' class='botdesc'>
+                        
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script>
+            document.getElementById('id').addEventListener('blur', function(event) {
+                document.getElementById('serverName').innerText = document.getElementById('id').value + " (Bots id for now)";
+
+            });
+            document.getElementById('prefix').addEventListener('blur', function(event) {
+                document.getElementById('prefixDemo').innerText = document.getElementById('prefix').value;
+
+            });
+            document.getElementById('long').addEventListener('blur', function(event) {
+                document.getElementById('desc').innerHTML = marked(document.getElementById('long').value);
+
+            });
+            document.getElementById('short').addEventListener('blur', function(event) {
+                document.getElementById('shortDemo').innerText = document.getElementById('short').value;
+
+            });
+            document.getElementById('library').addEventListener('blur', function(event) {
+                document.getElementById('librarydemo').innerText = document.getElementById('library').value;
+
+            });
+            /*document.getElementById('backgroundColor').addEventListener('blur', function(event) {
+    
+                document.getElementById('mainContent').style.backgroundColor = document.getElementById('backgroundColor').value
+
+            });*/
+        
+
+
+
+        </script>
+
+        <script>
+                let uploadedUrl;
+                // select file input
+                const bannerInput = document.getElementById('banner');
+                
+                var tagContainer = document.querySelector('.tag-container');
+                var inputHolder = document.querySelector('.input-holder');
+                var input = document.querySelector('.tag-container input');
+                var tags = [];
+                var tagUsed = false;
+
+        
+                function createTag(label) {
+                    const div = document.createElement('div');
+                    div.setAttribute('class', 'tag');
+                    const span = document.createElement('span');
+                    span.innerHTML = label;
+                    const closeIcon = document.createElement('i');
+                    closeIcon.innerHTML = 'close';
+                    closeIcon.setAttribute('class', 'material-icons');
+                    closeIcon.setAttribute('data-item', label);
+                    div.appendChild(span);
+                    div.appendChild(closeIcon);
+                    return div;
+                }
+        
+                function clearTags() {
+                    document.querySelectorAll('.tag').forEach(tag => {
+                        tag.parentElement.removeChild(tag);
+                    });
+                }
+        
+                function addTags() {
+                    tagUsed = false;
+                    clearTags();
+                    tags.slice().reverse().forEach(tag => {
+                        tagContainer.prepend(createTag(tag));
+                    });
+                }
+        
+                input.addEventListener('keyup', (key) => {
+                    if(key.keyCode == 13){
+                        if(tags.length <= 5){
+                                if(!tags.includes(input.value.toLowerCase())){
+                                    tags.push(input.value); 
+                                    addTags();
+                                    input.value = '';
+                                    tagUsed = true;
+                            } else {
+                                document.getElementById('error').style.display = 'block';
+                                console.log("Windows is stupid ;-;")
+                                tagContainer.style.webkitAnimationName = 'shake';
+                                tagContainer.style.webkitAnimationDuration = '0.2s';
+            
+                                setTimeout(() => {
+                                    tagContainer.style.webkitAnimationName = '';
+                                }, 200);
+                            }
+                        }
+
+
+        
+                    }
+                })
+        
+                document.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'I') {
+                        const tagLabel = e.target.getAttribute('data-item');
+                        const index = tags.indexOf(tagLabel);
+                        tags = [...tags.slice(0, index), ...tags.slice(index+1)];
+                        addTags();    
+                    }
+                })
+
+                const uploadFile = (file) => {
+                
+                    // add file to FormData object
+                    const fd = new FormData();
+                    fd.append('filename', file);
+                
+                    // send `POST` request
+                    fetch('https://cdn.botrix.cc/uploadBanner', {
+                        method: 'POST',
+                        body: fd
+                    })
+                    .then(res => {
+                        document.getElementById("bannerImage").src = `https://cdn.botrix.cc/banner/${uploadedUrl}`;
+                        document.getElementById("bannerForDemo").src = `https://cdn.botrix.cc/banner/${uploadedUrl}`;
+                        document.getElementById("banenrImage").style.height  = "100px";
+                        uploadedUrl = `https://cdn.botrix.cc/banner/${uploadedUrl}`;
+                    })
+                    .then(json => console.log(json))
+                    .catch(err => console.error(err));
+                }
+                
+                // add event listener
+                bannerInput.addEventListener('change', async () => {
+                    uploadedUrl = `banner_${makeid(16)}.png`;
+                    var blob = await bannerInput.files[0].slice(0, bannerInput.files[0].size, 'image/png'); 
+                    var newFile = await new File([blob], uploadedUrl, {type: 'image/png'});
+                    await uploadFile(newFile);
+                });
+                
+                function makeid(length) {
+                    var result           = '';
+                    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                    var charactersLength = characters.length;
+                    for ( var i = 0; i < length; i++ ) {
+                        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                    }
+                    return result;
+                }
+    
+        </script>
+</body>
+</html>

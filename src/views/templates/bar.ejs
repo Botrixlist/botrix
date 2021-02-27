@@ -1,0 +1,183 @@
+<div class='header'>
+    <div class='headerRes' id='headerRes'>
+        <a href='https://botrix.cc/' class='headerLogo'><img class='logo' src='https://media.discordapp.net/attachments/748427107968745512/810018388126597120/botrix_swirl.png?width=1031&height=1031' width='50px' height='50px'; alt='Botrix'></a>
+        <nav>
+            <ul id='nav' class='nav_links'>
+                <li id='aLink1'><a  class='alink' href='/'>Home</a></li>
+		<li id='aLink2' class='aNavLinkDropdown'>
+                    <a href='/search'>Search ▼</a>
+                    <div class='aNavLinkDropdownContent'>
+                        <ul>
+                            <li><a class='alink' href='/search'>Search Bots</a></li>
+                            <li><a class='alink' href='/servers/search'>Search Servers</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li id='aLink3' class='aNavLinkDropdown' >
+                    <a href='/search'>Other ▼</a>
+                    <div class='aNavLinkDropdownContent'>
+                        <ul>
+                            <li><a class='alink' href='/tos'>TOS</a></li>
+                            <li><a class='alink' href='/Privacy'>Privacy Policy</a></li>
+                            <li><a class='alink' href='/join'>Join</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li id='aLink4' class='aNavLinkDropdown'>                            
+                    
+                    <a href='/search'>Add ▼</a>
+                    <div class='aNavLinkDropdownContent'>
+                        <ul>
+                            <li><a class='alink' href='/add'>Add Bot</a></li>
+                            <li><a class='alink' href='/servers/add'>Add server</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li id='aLink5'>                            
+                    <a href='/servers' class='alink'>Servers</a>
+                </li>
+                <li id='aLink1'><a  class='alink' href='https://docs.botrix.cc/'>API Docs</a></li>
+                <% if(user) { %>
+                        <div class="dropdown" id='dropdownnav'>
+                                    <button class="dropbtn" ><li><a href='/me'>Welcome, <%= user.username %></a></li></button>
+                                    <div class="dropdown-content" id='dropdownContent'>
+                                        <a href="/me">Portal</a>
+                                        <a onclick='changeTheme()'>Change Theme</a>
+                                        <a href="/certified">Certification</a>
+                                        <a href="/logout">Logout</a>
+                                        <% if(wallet.wallet) {  %><a href="/wallet/dash"> <%= wallet.wallet.walletAmount %> BTX </a><% } %>
+                                    </div> 
+                                </div>                            
+                <% } else { %>
+                    <div class="dropdown" id='dropdownnav'>
+                        <button class="dropbtn" ><li><a href='/login'>Login</a></li></button>
+                        <div class="dropdown-content">
+                            <a onclick='changeTheme()'>Change Theme</a>
+                            <% if(wallet.wallet) {  %><a href="/wallet/dash"> <%= wallet.wallet.walletAmount %> BTX </a><% } %>
+                        </div> 
+
+                    </div>         
+                <% } %>
+                <% if(wallet.wallet) {  %>
+
+                    <div class="btxholdernav dropdown" id='dropdownnav'>
+                        <li><a class='btxHolder' onclick='displayBtx()' id='btxButton'><img src='https://i.imgur.com/BbnTF7z.png' height="30px" style="float: left; padding-right: 6px;"><span style="float: right; padding-top: 2px;">Get BTX (<%= wallet.wallet.walletAmount %>)</span></a></li>
+                    </div>
+
+                <% } else { %>
+                    <div class="dropdown" id='dropdownnav'>
+                        <li><a onclick='displayBtx()' style='cursor: pointer;' class='btxHolder' id='btxButton'><img src='https://i.imgur.com/BbnTF7z.png' height="30px" style="float: left; padding-right: 6px;"><span style="float: right; padding-top: 2px;">Get BTX</span></a></li>
+                    </div>
+                    <% } %> 
+            </ul>
+            <div class='hamburgur-responsiveMenu'>
+                <nav id="hamnav">
+                    <!-- [THE HAMBURGER] -->
+                    <label for="hamburger"> &#9776;</label>
+                    <input type="checkbox" id="hamburger"/>
+               
+                    <!-- [MENU ITEMS] -->
+                    <div id="hamitems">
+                      <a href="/">Home</a>
+                      <a href="/search">Search</a>
+                      <a href="/add">Add Bot</a>
+                      <a href="/servers">Servers</a>
+		      <a href="https://docs.botrix.cc">API Docs</a>
+                    <% if(user) { %> <a href="/me">Welcome <%= user.username %></a><% } else { %>  <a href="/login">Login</a> <% } %>
+                      <% if(wallet.wallet) {  %><a href="/wallet/dash"> <%= wallet.wallet.walletAmount %> BTX </a><% } %>
+                    </div>
+                  </nav>
+            </div>
+        </nav>
+    </div>
+</div>
+
+
+
+<div class='btx-popup-container'>
+    <div class='btx-popup-outer' id='btx'>
+        <div class='btx-popup'>
+            <div class='btx-popup-close' id='close'>
+                <a onclick='closePopup()' style='color: black; cursor: pointer;'>X</a>
+            </div>
+            <h1>Get BTX</h1>
+            <div class='sub-contianer'>
+                <p>BTX is used for boosting a bot/servers visibility, commonly known as "Bumping" <br> giving BTX to a bot boosts its visibility. <br> <bold>By getting BTX you help out botrix.</bold></p>    
+            </div>
+            <br>
+            <div class='sub-contianer'>
+                <table>
+                    <tr>
+                      <td>100 BTX</td>
+                      <td><button style='float: right; background-color: var(--accentColor);' class='newButton' data-cost='1.99' data-name='basic' onclick="checkout('203918')">$1.99</button></td>
+                    </tr>
+                    <tr>
+                        <td>250 BTX</td>
+                        <td><button style='background-color: var(--accentColor); float: right;' class='newButton' data-cost='5.99' onclick="checkout('92849')">$5.99</button></td>
+                    </tr>
+                    <tr>
+                        <td>500 BTX</td>
+                        <td><button style='float: right; background-color: var(--accentColor);' class='newButton' data-cost='10.99' onclick="checkout('5342')">$10.99</button></td>
+                    </tr>  
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function displayBtx(){
+        document.getElementById('btx').style.visibility = 'visible';
+        document.getElementById('btx').style.opacity = "100";
+    }
+    function closePopup(){
+        document.getElementById('btx').style.visibility = 'hidden';
+        document.getElementById('btx').style.opacity = "0";
+    }
+
+    function checkout(name){
+        if(getCookie("cart") == ""){
+            let cartData = name;
+
+            setCookie("cart", cartData, 365);
+
+            console.log(getCookie("cart"));
+            window.location.href = "/btx/checkout";
+        } else {
+            let cart = getCookie("cart");
+
+            let cartData = name;
+            
+            setCookie("cart", cartData, 365);
+            console.log(getCookie("cart"))
+            window.location.href = "/btx/checkout";
+        }
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+</script>

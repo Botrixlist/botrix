@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botrix</title>
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <script src='/js/bots/mod/delete.js'></script>
+    <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+</head>
+<body>
+    <%- include("../templates/bar") %>
+
+    <div class='container' style='background-color: #23272A; color: white !important; border-radius: 20px; width: 100%;'>
+        <h1 style='padding-top: 30px;'>Please select a reason to delete <%= bot.username %></h1>
+        <p>You are deleting <%= bot.username %></p>
+        <br>
+        <hr>
+        <br>
+        <p id='err' style='color: red !important;'>You must select an option!</p>
+        <br>
+        <input type="checkbox" id="offline" name="offile" value="Bot is always offline">
+        <label for="offline">Bot is always offline</label><br>
+        <br>
+        <input type="checkbox" id="clone" name="clone" value="Your bot is a clone of another bot">
+        <label for="clone">Your bot is a clone of another bot</label><br>
+        <br>
+        <input type="checkbox" id="responds" name="responds" value="Your bot breaks discord's TOS">
+        <label for="responds">Your bot breaks discord's TOS</label><br>
+        <br>
+        <input type="checkbox" id="noCommands" name="noCommands" value="Your bot has broken our TOS">
+        <label for="noCommands">Your bot has broken our TOS</label><br>
+        <br>
+        <input type="checkbox" id="nsfw" name="nsfw" value="Your bot has NSFW commands that work in non-NSFW marked channels">
+        <label for="nsfw">Your bot has NSFW commands that work in non-NSFW marked channels</label><br>
+        <br>
+        <input type="checkbox" id="help" name="help" value="Your bot doesn't have a working help command or commands list">
+        <label for="help">Your bot doesn't have a working help command or commands list</label><br>
+        <br>
+        <div class="inputHolder">
+            <textarea class='input' id='other' style='height: 200px' placeholder="Other reason" id='id'></textarea>
+        </div>
+        <br>
+        <a class='button' onclick='submit()'>Decline</a>
+        <br>
+    </div>
+
+    <script>
+       let  botId ="<%= bot.botid %>";
+    </script>
+</body>
+</html>
