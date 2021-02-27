@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta data-n-head="ssr" name="apple-mobile-web-app-title" content="Botrix List">
+<meta data-n-head="ssr" name="application-name" content="Botrix List">
+        
+
+            <meta charset="UTF-8">
+            <meta property="og:type" content="website" />
+            <meta name="theme-color" content="<%= borderColor %>">
+            <meta property="og:site_name" content="Proudly made with ❤️️ by botrix!">
+            <meta property="og:url" content="http://botrix.cc/" />
+            <meta property="og:title" content="<%= bot.username %>">
+            <meta property="og:image" content="<%= bot.logo %>">
+            <meta name="twitter:card" content="summary">
+            <meta property="og:description" content="<%= bot.description %>
+            
+            ↑ : <%= bot.votes %> | ✎ : <%= bot.prefix %>">
+        
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <script src="/js/main.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Markazi+Text" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" media="all" href="/assets/themes/main.css" id="theme_css" />
+    <link rel="icon" 
+    type="image/png" 
+    href="https://cdn.discordapp.com/attachments/747602999035166810/757838697080160356/logo_wo_background.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <title>Botrix</title>
+    <link rel="shortcut icon" href="">
+    <script src="/js/nav.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+</head>
+<body onload='onload()'>
+    <%- include("templates/bar") %>
+    <div class='content' style=''>
+        <div class='paddingBanner'>
+            <img src='<%= bot.bannerURL %>' onerror='this.src="https://windows.is-big.gay/q27kIp1RC" ' class='botBannerHolder'>
+        </div>
+        <div class='bot-main-content'>
+            <div stye='max-width: 250px;'>
+                <img id="bot-icon" style='border: 3px solid <%= borderColor %>; margin-left: 50px;' src="<%= bot.logo %>?size=512">
+                <div style='background-color: #1a1a1a; width: 200px; height: 30px; border-radius: 10px; margin-left: 50px;' class='prefix'><p style='padding: 3px 10px; margin-top: 10px;'>Prefix: <span style='color: #FF006B;'><%= bot.prefix %></span></p></div>        
+                <span style='margin-top: 20px; color: azure;    display: block;    padding-left: 10px; margin-left: 50px;'>Made by:</span>
+                <% if(author) { %>
+            
+                    <div class='userBotHolder' style="margin-left: 50px; margin-top: 15px;">
+                        <a style="position: relative; float: left;" href='/user/<%= author.user.id %>'>
+                            <div style='padding-left: 15px; padding-top: 5px; text-align: center;'>
+                                <img style='border-radius: 50%' height='30px'
+                                    src="<%= author.user.tag != 'Unknown User'  ? author.user.displayAvatarURL() : '/assets/default-avatar.png'  %>">
+                                <span style='position: relative; top: -10px; padding: 20px 10px'><%= author.user.username %></span>
+                        </a>
+                    </div>
+                <% } else {  %>
+                    <div class='userBotHolder' style="margin-left: 50px; margin-top: 15px;">
+                        <a style="position: relative; float: left;">
+                            <div style='padding-left: 15px; padding-top: 5px; text-align: center;'>
+                                <img style='border-radius: 50%' height='30px'
+                                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdiscordapp.com%2Fassets%2Fdd4dbc0016779df1378e7812eabaa04d.png&f=1&nofb=1">
+                                <span style='position: relative; top: -10px; padding: 20px 10px'>Unknown user</span>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+            <div style="margin-left: 50px;">
+                <h1 class="rightServer" id='serverName'>
+                    <%= bot.username %>  <% if(bot.certified == "approved"){  %> <img height='50' class='badgeCard' alt='Botrix Certified' src='https://cdn.discordapp.com/attachments/748340693881192484/760017137351000134/cert-badge.png'>    <% } %>
+                </h1>
+                <div class="rightServer" style="padding-top: 10px;">
+                    <%= bot.description %>    
+      
+
+                    <!--Accessories-->
+                    <div class='server-minimal-tags-holder'>
+                        <div class='server-minimal-tags'><span>Library</span><p class='padding-p'><%= bot.botLibrary %></p></div>
+                        <div class='server-minimal-tags'><span>Votes</span><p class='padding-p'><%= bot.votes %></p></div>
+			
+			<% if (bot.servers) { %>
+			<div class='server-minimal-tags'><span>Servers</span><p class='padding-p'><%= bot.servers || "N/A" %></p></div>
+			<% } %>
+			
+			<% if (bot.users) { %>
+                        <div class='server-minimal-tags'><span>Users</span><p class='padding-p'><%= bot.users || "N/A" %></p></div>
+			<% } %>
+			
+			<% if (bot.shards) { %>
+                        <div class='server-minimal-tags'><span>Shards</span><p class='padding-p'><%= bot.shards || "N/A" %></p></div>
+			<% } %>
+			
+			</div>
+                    <div class="server-minimal-tags-holder">
+                        <% for(i of bot.botTags) { %>
+                            <div class='server-minimal-tags' style="background-color: #11fca3;"><p><%= i %></p></div>
+                        <% } %>
+                    </div>
+                    <div class="server-minimal-tags-holder">
+                        <% for(i of badges) { %>
+                            <div class='server-minimal-tags' style="background-color:#116afc;"><p><%= i.key + 1 %> <%= i.name %></p></div>
+                        <% } %>
+                    </div>
+
+                </div>
+
+                <div class="rightServerButtons">
+                    <% if (isOwner) { %>
+                    <a class="minimalButton" style='width: 45%;' target="_blank" href="/edit/<%= bot.botid %>"> <i class="fa fa-fw fa-server" aria-hidden="true"></i>Edit <br> <span class="material-icons">notebook</span></a>
+                    <% } %>
+                    <a class="minimalButton" style='width: 45%;' target="_blank" href="<%= bot.invite %>"> <i class="fa fa-fw fa-server" aria-hidden="true"></i>Invite <br> <span class="material-icons">library_add_check</span></a>
+                    <a class="minimalButton" style='width: 45%;' target="_blank" href="/vote/<%= bot.botid %>"> <i class="fa fa-fw fa-server" aria-hidden="true"></i>Vote <br> <span class="material-icons">done</span></a>
+                    <a class="minimalButton" style='width: 45%;' target="_blank" href="<%= bot.support %>"> <i class="fa fa-fw fa-server" aria-hidden="true"></i>Server <br> <span><img src='https://windows.is-big.gay/rhhFiWMtw' height="30px"></span></a>
+                    <a class="minimalButton" style='width: 45%;' target="_blank" href="<%= bot.website %>"> <i class="fa fa-fw fa-server" aria-hidden="true"></i>Website <br> <span><img src='https://windows.is-big.gay/FIvt2oE6m' height="30px"></span></a>
+                    <a class="minimalButton" style='width: 45%;' target="_blank" onclick='openRewards()' style="cursor: pointer;" > <i class="fa fa-fw fa-server" aria-hidden="true"></i>Award <br> <span><img src='https://windows.is-big.gay/ONed1Baga' height="30px"></span></a>
+                </div>
+            </div>
+
+            <% if(isAdmin) { %>
+                <div class='moderation-banner'>
+                    <h3 style='color: black;'>Verifiers</h3>
+                    <p style='color: black; padding-bottom: 5px;'>Not sure on what to do? Ask someone else.</p>
+                    <div class='moderation-banner-buttons'>
+                        <a class='button-approvers' style='background-color: red;'  href='/confirm/delete/<%= bot.botid %>'>Delete</a>
+                        <br>
+                        <% if(bot.state == "unverified") { %>
+                            <a class='button-approvers'  style='background-color: green;'  href='/api/approve/<%= bot.botid %>'>Approve</a>
+                            <br>
+                            <a class='button-approvers' style='background-color: red;'  href='/confirm/deny/<%= bot.botid %>'>Deny</a>
+                            <br>
+                        <% } %>
+                        <br>
+                    </div>
+                </div>
+            <% } %>        
+            <div class='botdesc'>
+                 <%- long %>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <span>
+        <script>
+            let user = "<%= user %>";
+        </script>
+    </span>
+    </div>
+    <div class='btx-award-popup-container'>
+        <div class='btx-award-popup-outer' id='awards'>
+            <div class="btx-award-popup">
+                <div class="btx-popup-close" id="close">
+                    <a onclick="closeAwards()" style="color: black;cursor: pointer;">X</a>
+                </div>
+                <div style="text-align: center;">
+                    
+    <h1 class="classy-text" style="color: white;">Awards</h1><p class="classy-text" style="">Awards are a way to show appreciation for the bot/server and help support the author.</p>
+                </div>
+                <div class="sub-contianer-give">
+                    <div class="currnet-reward">
+                        <img src="https://windows.is-big.gay/yneBfVR6O" height="50px">
+                        <h2 class="classy-text" id="nameDisplay">Gold</h2>
+                        <h2><span class="classy-text" id="priceDisplay">100BTX</span></h2>
+                        <br>
+                        <br>
+                        <br>
+                        <p style="color: red;" id="error"></p>
+                        <br>
+                        <a class="award-give-button" id="giveAward" data-sku="" onclick="award()">Give award</a>
+                    </div>
+                </div>
+                <br>
+                <div class="sub-contianer-btx-awards" style="max-width: 50%; margin-top: -20px;">
+                    <p>Select Reward to Tip</p>
+                    <div class="sub-contianer-awards">
+                        
+                            <a class="awards-holder" data-price="100" data-name="Silver" id="001" onclick="setItem(&quot;001&quot;, this.id)">
+                                <img src="https://windows.is-big.gay/P4k7PfXVT" height="30px">
+                                <br>
+                                <p>100</p>
+                            </a>
+                        
+                            <a class="awards-holder" data-price="200" data-name="Gold" id="002" onclick="setItem(&quot;002&quot;, this.id)">
+                                <img src="https://windows.is-big.gay/uuqzCdnQX" height="30px">
+                                <br>
+                                <p>200</p>
+                            </a>
+                        
+                            <a class="awards-holder" data-price="300" data-name="Platinum" id="003" onclick="setItem(&quot;003&quot;, this.id)">
+                                <img src="https://windows.is-big.gay/xMNXcRuDq" height="30px">
+                                <br>
+                                <p>300</p>
+                            </a>
+                        
+                    </div>
+ 
+                </div>
+                
+            </div>
+        </div>
+    </div> <!--Hello user ;)-->
+    <script>
+        let url = `/api/award/<%= bot.botid %>/gift/001`;
+        let botid = "<%= bot.botid %>"
+        function openRewards(){
+            document.getElementById('awards').style.visibility = 'visible';
+            document.getElementById('awards').style.opacity = "100";
+        }
+        function closeAwards(){
+            document.getElementById('awards').style.visibility = 'hidden';
+            document.getElementById('awards').style.opacity = "0";
+        }
+        function setItem(sku, id){
+            document.getElementById('priceDisplay').innerHTML = document.getElementById(id).dataset.price;
+            document.getElementById('nameDisplay').innerHTML = document.getElementById(id).dataset.name;
+            document.getElementById('giveAward').dataset.sku = id;
+            url = `/api/award/${botid}/gift/${id}`;
+        }
+        console.log('submited');
+        function award(){
+            fetch(url, {
+            method: 'POST',
+            headers:{
+            'Content-Type': 'application/json'
+            }
+            }).then(res => res.json())
+            .then(response => {
+                console.log(response);
+                if(response.done){
+                    location.reload();
+                } else if(response.error){
+                    document.getElementById('error').innerText = response.error;
+                }
+            })
+        }
+    </script>
+</body>
+</html>
