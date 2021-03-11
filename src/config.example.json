@@ -1,0 +1,31 @@
+{
+  "id": "",
+  "clientSecret": "",
+  "domain": "https://botrix.cc",
+  "MongoDbServer": "mongodb://user:pass@hostname:port/db",
+  "Token": "",
+  "ServerToken": "",
+  "port": "80",
+  "AppId": "",
+  "OWNER_USERS": [
+    "Discord User ID",
+  ],
+  "ADMIN_USERS": [
+   "Discord User ID",
+  ],
+  "UNVERIFIED_ROLE": "Role ID",
+  "VERIFIED_ROLE": "Role ID",
+  "GUILD_ID": "Guild ID",
+  "BOT_DEVELOPER_ROLE_ID": "Role ID",
+  "BOT_DEVELOPER_ROLE_ID_VERIFIED": "Role ID",
+  "MOD_LOG": "Channel ID",
+  "VOTE_LOG": "Channel ID",
+  "greeting_chan": "Channel ID",
+  "leave_chan": "Channel ID",
+  "logging_chan": "Channel ID",
+  "prefix": "*",
+  "embed_color": "#ff2142",
+  "embed_guildname": "Botrix",
+  "CERT_LOGS": "Channel ID",
+  "maintenince": false
+}
